@@ -1,0 +1,132 @@
+// https://leetcode.com/problems/regular-expression-matching/
+
+fn byte_match(s: &[u8], p: &[u8]) -> bool {
+    let mut str_pos = 0;
+    let mut pat_pos = 0;
+
+    while pat_pos < p.len() {
+        match (p[pat_pos], p.get(pat_pos + 1)) {
+            (b'*', _) => {
+                panic!("Invalid pattern: * cannot be the first character");
+            }
+            (b'.', Some(b'*')) => {
+                // Zero or more
+                pat_pos += 2;
+
+                if byte_match(&s[str_pos..], &p[pat_pos..]) {
+                    return true;
+                }
+
+                while str_pos < s.len() {
+                    str_pos += 1;
+                    if byte_match(&s[str_pos..], &p[pat_pos..]) {
+                        return true;
+                    }
+                }
+            }
+            (b'.', _) => {
+                // Exact match any letter
+                str_pos += 1;
+                pat_pos += 1;
+            }
+            (letter, Some(b'*')) => {
+                // Zero or more
+                pat_pos += 2;
+
+                if byte_match(&s[str_pos..], &p[pat_pos..]) {
+                    return true;
+                }
+
+                while str_pos < s.len() && s[str_pos] == letter {
+                    str_pos += 1;
+                    if byte_match(&s[str_pos..], &p[pat_pos..]) {
+                        return true;
+                    }
+                }
+            }
+            (letter, _) => {
+                // Exact match
+                if s.get(str_pos) != Some(&letter) {
+                    return false;
+                }
+                str_pos += 1;
+                pat_pos += 1;
+            }
+        }
+    }
+
+    if str_pos == s.len() && pat_pos == p.len() {
+        return true;
+    }
+
+    false
+}
+
+pub fn is_match(s: String, p: String) -> bool {
+    let s = s.into_bytes();
+    let p = p.into_bytes();
+
+    // Move *s to the end of their same-letter clump
+
+    byte_match(&s, &p)
+}
+
+#[cfg(test)]
+mod tests {
+    use super::is_match;
+
+    #[test]
+    fn test_exact_match() {
+        assert_eq!(is_match("aa".to_string(), "a".to_string()), false);
+        assert_eq!(is_match("aa".to_string(), "aa".to_string()), true);
+        assert_eq!(is_match("aaa".to_string(), "aa".to_string()), false);
+    }
+
+    #[test]
+    fn test_zero_or_more() {
+        assert_eq!(is_match("aa".to_string(), "a*".to_string()), true);
+        assert_eq!(is_match("aa".to_string(), "b*".to_string()), false);
+        assert_eq!(is_match("ab".to_string(), "a*b*".to_string()), true);
+        assert_eq!(is_match("aba".to_string(), "a*b*".to_string()), false);
+    }
+
+    #[test]
+    fn test_any_char() {
+        assert_eq!(is_match("aa".to_string(), ".".to_string()), false);
+        assert_eq!(is_match("ab".to_string(), "..".to_string()), true);
+        assert_eq!(is_match("ab".to_string(), "a.".to_string()), true);
+        assert_eq!(is_match("ab".to_string(), ".b".to_string()), true);
+    }
+
+    #[test]
+    fn test_complicated() {
+        assert_eq!(is_match("aab".to_string(), "c*a*b".to_string()), true);
+        assert_eq!(
+            is_match("mississippi".to_string(), "mis*is*p*.".to_string()),
+            false
+        );
+        assert_eq!(
+            is_match("mississippi".to_string(), "mis*is*ip*.".to_string()),
+            true
+        );
+        assert_eq!(
+            is_match("mississippi".to_string(), "m..*is*ip*.".to_string()),
+            true
+        );
+    }
+
+    #[test]
+    fn test_zeroormore_edge_case() {
+        assert_eq!(is_match("a".to_string(), "a.*".to_string()), true);
+        assert_eq!(is_match("a".to_string(), "aa*".to_string()), true);
+        assert_eq!(is_match("a".to_string(), "a*".to_string()), true);
+        assert_eq!(is_match("a".to_string(), "ab*".to_string()), true);
+        assert_eq!(is_match("a".to_string(), "b*".to_string()), false);
+        assert_eq!(is_match("aaa".to_string(), "a*a".to_string()), true);
+    }
+
+    #[test]
+    fn test_failing() {
+        assert_eq!(is_match("a".to_string(), ".*..a*".to_string()), false);
+    }
+}

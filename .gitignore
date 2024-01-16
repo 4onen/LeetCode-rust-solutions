@@ -1,0 +1,6 @@
+# Build directory
+target
+
+# Unnecessary precise dependency information
+# (Just use whatever LeetCode uses)
+Cargo.lock
