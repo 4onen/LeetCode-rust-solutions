@@ -105,3 +105,4 @@ pub mod swap_nodes_in_pairs;
 pub mod divide_two_integers;
 pub mod powx_n;
 pub mod unique_number_of_occurrences;
+pub mod maximum_subarray;
