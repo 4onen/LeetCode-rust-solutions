@@ -103,3 +103,4 @@ pub mod widest_vertical_area;
 pub mod zigzag_conversion;
 pub mod swap_nodes_in_pairs;
 pub mod divide_two_integers;
+pub mod powx_n;
