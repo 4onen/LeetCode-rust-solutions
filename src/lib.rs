@@ -106,3 +106,4 @@ pub mod divide_two_integers;
 pub mod powx_n;
 pub mod unique_number_of_occurrences;
 pub mod maximum_subarray;
+pub mod merge_intervals;
