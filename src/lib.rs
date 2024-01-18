@@ -108,3 +108,4 @@ pub mod unique_number_of_occurrences;
 pub mod maximum_subarray;
 pub mod merge_intervals;
 pub mod insert_interval;
+pub mod remove_duplicates_from_sorted_list;
