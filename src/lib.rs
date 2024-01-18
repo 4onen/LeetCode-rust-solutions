@@ -95,6 +95,7 @@ pub mod reverse_linked_list;
 pub mod reverse_linked_list_ii;
 pub mod roman_to_integer;
 pub mod search_insert_pos;
+pub mod simplify_path;
 pub mod sort_integers_by_number_of_1_bits;
 pub mod special_positions_in_binary_matrix;
 pub mod sqrt_x;
