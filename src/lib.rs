@@ -72,6 +72,7 @@ pub mod minimum_number_of_steps_to_make_two_strings_anagram;
 pub mod minimum_one_bit_operations;
 pub mod minimum_time_to_make_rope_colorful;
 pub mod my_atoi;
+pub mod next_permutation;
 pub mod number_of_dice_rolls_with_sum;
 pub mod number_of_laser_beams_in_a_bank;
 pub mod number_of_operations_to_make_an_array_empty;
