@@ -41,4 +41,6 @@ mod tests {
 }
 EOF
 echo "pub mod ${project_name};" >> src/lib.rs
+rustfmt --edition 2021 <src/lib.rs >src/lib.rs.tmp
 code "src/${project_name}.rs"
+mv src/lib.rs.tmp src/lib.rs
