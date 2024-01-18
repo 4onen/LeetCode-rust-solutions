@@ -1,4 +1,3 @@
-pub mod test;
 pub mod utils;
 
 pub mod add_binary;
