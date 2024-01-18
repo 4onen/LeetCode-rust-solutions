@@ -96,6 +96,7 @@ pub mod reverse_linked_list;
 pub mod reverse_linked_list_ii;
 pub mod roman_to_integer;
 pub mod rotate_list;
+pub mod search_in_rotated_sorted_array;
 pub mod search_insert_pos;
 pub mod simplify_path;
 pub mod sort_integers_by_number_of_1_bits;
