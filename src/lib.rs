@@ -95,6 +95,7 @@ pub mod replace_questions_avoid_consecutive_repeating_characters;
 pub mod reverse_integer;
 pub mod reverse_linked_list;
 pub mod reverse_linked_list_ii;
+pub mod reverse_nodes_in_even_length_groups;
 pub mod reverse_nodes_in_k_group;
 pub mod roman_to_integer;
 pub mod rotate_list;
