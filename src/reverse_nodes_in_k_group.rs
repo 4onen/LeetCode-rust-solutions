@@ -92,9 +92,8 @@ impl Solution {
             head = node.next.take();
             count += 1;
             *group_end = Some(node);
-            if count < k {
-                group_end = &mut group_end.as_mut().unwrap().next;
-            } else {
+            group_end = &mut group_end.as_mut().unwrap().next;
+            if count >= k {
                 count = 0;
                 let new_tail: *mut Option<Box<ListNode>> = &mut group_start.as_mut().unwrap().next;
                 *tail = {
