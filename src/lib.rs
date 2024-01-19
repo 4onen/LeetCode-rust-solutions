@@ -32,6 +32,7 @@ pub mod find_words_that_can_be_formed_by_chars;
 pub mod first_and_last_position_of_element_in_sorted_array;
 pub mod food_rating_system;
 pub mod four_sum;
+pub mod gas_station;
 pub mod generate_parentheses;
 pub mod get_maximum_score;
 pub mod image_smoother;
