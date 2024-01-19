@@ -101,6 +101,7 @@ pub mod reverse_nodes_in_even_length_groups;
 pub mod reverse_nodes_in_k_group;
 pub mod roman_to_integer;
 pub mod rotate_list;
+pub mod same_tree;
 pub mod search_in_rotated_sorted_array;
 pub mod search_insert_pos;
 pub mod simplify_path;
