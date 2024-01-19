@@ -66,6 +66,7 @@ pub mod maximum_subarray;
 pub mod mean_of_array_after_removing_some_elements;
 pub mod merge_intervals;
 pub mod merge_k_lists;
+pub mod merge_sorted_array;
 pub mod merge_two_sorted_lists;
 pub mod min_changes_to_make_alternating_binary_string;
 pub mod min_difficulty_job_schedule;
