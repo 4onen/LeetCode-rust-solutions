@@ -2,7 +2,7 @@
 
 set -e
 
-FILES=( $(git status --porcelain | grep -P ' src/(?!lib.rs)' | cut -d'/' -f2 | tr '\n' ' ') );
+FILES=( $(git status --porcelain | grep -P ' src/(?!lib).*\.rs' | cut -d'/' -f2 | tr '\n' ' ') );
 
 if [ -z "${FILES[@]}" ]; then
     echo "No files detected"
@@ -19,5 +19,5 @@ for file in ${FILES[@]}; do
     fi
 done
 
-git add src/lib.rs ${FILES[@]/#/src/}
+git add src/*
 git commit -m "Completed $(echo ${FILES[@]%.rs} | tr ' ' ', ')"
