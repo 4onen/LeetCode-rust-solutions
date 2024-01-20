@@ -110,6 +110,7 @@ pub mod special_positions_in_binary_matrix;
 pub mod sqrt_x;
 pub mod string_compression;
 pub mod string_compression_ii;
+pub mod sum_of_subarray_minimums;
 pub mod swap_nodes_in_pairs;
 pub mod three_sum;
 pub mod three_sum_closest;
