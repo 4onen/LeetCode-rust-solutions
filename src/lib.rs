@@ -59,6 +59,7 @@ pub mod max_product_two_elements;
 pub mod max_score_after_splitting_a_string;
 pub mod max_width_binary_tree;
 pub mod maximum_difference_between_node_and_ancestor;
+pub mod maximum_length_of_a_concatenated_string_with_unique_characters;
 pub mod maximum_number_of_events_that_can_be_attended;
 pub mod maximum_number_of_events_that_can_be_attended_ii;
 pub mod maximum_product_difference;
