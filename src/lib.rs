@@ -124,4 +124,5 @@ pub mod unique_number_of_occurrences;
 pub mod unique_paths;
 pub mod valid_parentheses;
 pub mod widest_vertical_area;
+pub mod wildcard_matching;
 pub mod zigzag_conversion;
