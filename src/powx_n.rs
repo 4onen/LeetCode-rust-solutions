@@ -19,8 +19,9 @@ mod tests {
 
     #[test]
     fn ex2() {
-        
-        assert_eq!(Solution::my_pow(2.1, 3), 9.261);
+        let result = Solution::my_pow(2.1, 3);
+        let expected = 9.261;
+        assert!((result - expected).abs() < 0.00001);
     }
 
     #[test]
