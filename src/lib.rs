@@ -35,6 +35,7 @@ pub mod four_sum;
 pub mod gas_station;
 pub mod generate_parentheses;
 pub mod get_maximum_score;
+pub mod group_anagrams;
 pub mod house_robber;
 pub mod image_smoother;
 pub mod index_of_first_occurrence;
