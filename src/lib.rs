@@ -90,6 +90,7 @@ pub mod paths_crossing;
 pub mod plus_one;
 pub mod power_of_four;
 pub mod powx_n;
+pub mod pseudo_palindromic_paths_in_a_binary_tree;
 pub mod range_sum_of_bst;
 pub mod regex_match_v2;
 pub mod remove_duplicates_from_sorted_list;
