@@ -52,6 +52,7 @@ pub mod length_of_last_word;
 pub mod letter_combinations_of_a_phone_number;
 pub mod level_order_traversal;
 pub mod longest_common_prefix;
+pub mod longest_common_subsequence;
 pub mod longest_increasing_subsequence;
 pub mod longest_palindromic_substring;
 pub mod longest_substring_without_repeating_characters;
