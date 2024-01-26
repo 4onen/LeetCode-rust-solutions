@@ -15,6 +15,7 @@ pub mod check_if_array_is_sorted_and_rotated;
 pub mod check_if_bitwise_or_has_trailing_zeroes;
 pub mod check_if_numbers_are_ascending_in_a_sequence;
 pub mod climbing_stairs;
+pub mod combination_sum;
 pub mod condition_partition;
 pub mod container_with_most_water;
 pub mod convert_an_array_into_2d_array_with_conditions;
