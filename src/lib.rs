@@ -45,6 +45,7 @@ pub mod insert_delete_getrandom_o1;
 pub mod insert_interval;
 pub mod integer_to_roman;
 pub mod is_anagram;
+pub mod k_inverse_pairs_array;
 pub mod largest_3_same_digit_number_in_string;
 pub mod largest_palindromic_number;
 pub mod largest_substring_between_two_equal_characters;
