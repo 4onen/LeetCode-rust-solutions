@@ -88,6 +88,7 @@ pub mod number_of_dice_rolls_with_sum;
 pub mod number_of_laser_beams_in_a_bank;
 pub mod number_of_operations_to_make_an_array_empty;
 pub mod number_of_steps_to_reduce_a_number_to_zero;
+pub mod number_of_submatrices_that_sum_to_target;
 pub mod ones_minus_zeroes;
 pub mod out_of_boundary_paths;
 pub mod palindrome_linked_list;
