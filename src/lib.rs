@@ -40,6 +40,7 @@ pub mod get_maximum_score;
 pub mod group_anagrams;
 pub mod house_robber;
 pub mod image_smoother;
+pub mod implement_queue_using_stacks;
 pub mod index_of_first_occurrence;
 pub mod insert_delete_getrandom_o1;
 pub mod insert_interval;
