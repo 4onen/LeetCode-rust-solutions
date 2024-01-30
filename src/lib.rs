@@ -28,6 +28,7 @@ pub mod destination_city;
 pub mod determine_if_string_halves_are_alike;
 pub mod determine_if_two_strings_are_close;
 pub mod divide_two_integers;
+pub mod evaluate_reverse_polish_notation;
 pub mod find_players_with_zero_or_one_losses;
 pub mod find_winner_on_a_tic_tac_toe_game;
 pub mod find_words_that_can_be_formed_by_chars;
