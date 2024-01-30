@@ -1,6 +1,6 @@
 // https://leetcode.com/problems/implement-queue-using-stacks/
 
-struct MyQueue {
+pub struct MyQueue {
     stack: Vec<i32>,
     queue: Vec<i32>,
 }
@@ -10,18 +10,18 @@ struct MyQueue {
  * If you need a mutable reference, change it to `&mut self` instead.
  */
 impl MyQueue {
-    fn new() -> Self {
+    pub fn new() -> Self {
         MyQueue {
             stack: Vec::new(),
             queue: Vec::new(),
         }
     }
 
-    fn push(&mut self, x: i32) {
+    pub fn push(&mut self, x: i32) {
         self.stack.push(x);
     }
 
-    fn pop(&mut self) -> i32 {
+    pub fn pop(&mut self) -> i32 {
         if self.queue.is_empty() {
             while let Some(x) = self.stack.pop() {
                 self.queue.push(x);
@@ -30,7 +30,7 @@ impl MyQueue {
         self.queue.pop().unwrap()
     }
 
-    fn peek(&mut self) -> i32 {
+    pub fn peek(&mut self) -> i32 {
         if self.queue.is_empty() {
             while let Some(x) = self.stack.pop() {
                 self.queue.push(x);
@@ -39,7 +39,7 @@ impl MyQueue {
         *self.queue.last().unwrap()
     }
 
-    fn empty(&self) -> bool {
+    pub fn empty(&self) -> bool {
         self.stack.is_empty() && self.queue.is_empty()
     }
 }
