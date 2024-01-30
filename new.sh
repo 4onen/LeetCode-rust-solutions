@@ -14,6 +14,9 @@ else
     url=$2
 fi
 
+# Remove query parameters from the url
+url=${url%%\?*}
+
 if [ -e "src/${project_name}" ]; then
     echo "Project ${project_name} already exists"
     exit 1
