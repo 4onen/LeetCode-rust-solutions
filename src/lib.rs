@@ -21,6 +21,7 @@ pub mod container_with_most_water;
 pub mod convert_an_array_into_2d_array_with_conditions;
 pub mod count_and_say;
 pub mod count_of_matches_in_tournament;
+pub mod daily_temperatures;
 pub mod decode_ways;
 pub mod design_hashmap;
 pub mod design_hashmap_cheesed;
