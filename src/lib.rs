@@ -28,6 +28,7 @@ pub mod design_hashmap_cheesed;
 pub mod destination_city;
 pub mod determine_if_string_halves_are_alike;
 pub mod determine_if_two_strings_are_close;
+pub mod divide_array_into_arrays_with_max_difference;
 pub mod divide_two_integers;
 pub mod evaluate_reverse_polish_notation;
 pub mod find_players_with_zero_or_one_losses;
