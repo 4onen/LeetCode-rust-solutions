@@ -119,6 +119,7 @@ pub mod rotate_list;
 pub mod same_tree;
 pub mod search_in_rotated_sorted_array;
 pub mod search_insert_pos;
+pub mod sequential_digits;
 pub mod set_mismatch;
 pub mod simplify_path;
 pub mod sort_integers_by_number_of_1_bits;
