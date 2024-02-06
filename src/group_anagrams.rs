@@ -2,6 +2,7 @@
 
 pub struct Solution;
 
+// Counting sol'n
 impl Solution {
     pub fn group_anagrams(mut strs: Vec<String>) -> Vec<Vec<String>> {
         #[derive(Debug, Clone, PartialEq, Eq, PartialOrd, Ord)]
@@ -42,6 +43,23 @@ impl Solution {
         result
     }
 }
+
+// Sorting sol'n
+// impl Solution {
+//     pub fn group_anagrams(strs: Vec<String>) -> Vec<Vec<String>> {
+//         let mut anagrams: std::collections::HashMap<Vec<u8>, Vec<String>> =
+//             std::collections::HashMap::new();
+//         for s in strs {
+//             let mut sorted = s.clone().into_bytes();
+//             sorted.sort_unstable();
+//             anagrams
+//                 .entry(sorted)
+//                 .and_modify(|v| v.push(s.clone()))
+//                 .or_insert(vec![s]);
+//         }
+//         anagrams.into_values().collect()
+//     }
+// }
 
 #[cfg(test)]
 mod tests {
