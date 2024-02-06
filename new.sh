@@ -17,7 +17,7 @@ fi
 # Remove query parameters from the url
 url=${url%%\?*}
 
-if [ -e "src/${project_name}" ]; then
+if [ -e "src/${project_name}.rs" ]; then
     echo "Project ${project_name} already exists"
     exit 1
 fi
