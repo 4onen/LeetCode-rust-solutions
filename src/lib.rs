@@ -125,6 +125,7 @@ pub mod search_insert_pos;
 pub mod sequential_digits;
 pub mod set_mismatch;
 pub mod simplify_path;
+pub mod sort_characters_by_frequency;
 pub mod sort_integers_by_number_of_1_bits;
 pub mod special_positions_in_binary_matrix;
 pub mod sqrt_x;
