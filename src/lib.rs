@@ -101,6 +101,7 @@ pub mod palindrome_linked_list;
 pub mod palindrome_num;
 pub mod partition_array_for_maximum_sum;
 pub mod paths_crossing;
+pub mod perfect_squares;
 pub mod plus_one;
 pub mod power_of_four;
 pub mod powx_n;
