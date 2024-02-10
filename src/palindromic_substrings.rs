@@ -41,26 +41,58 @@ pub struct Solution;
 // }
 
 // One-helper optimization
+// impl Solution {
+//     pub fn count_substrings(s: String) -> i32 {
+//         const fn palindromes_from(s: &[u8], mut l: usize, mut r: usize) -> u32 {
+//             let n = s.len();
+//             let mut count = 0;
+//             while l > 0 && r < n - 1 && s[l - 1] == s[r + 1] {
+//                 l -= 1;
+//                 r += 1;
+//                 count += 1;
+//             }
+//             count
+//         }
+//         let s = s.into_bytes();
+//         let n = s.len();
+//         let mut count = n as u32;
+//         for i in 0..n.saturating_sub(1) {
+//             count += palindromes_from(&s, i, i);
+//             count += palindromes_from(&s, i + 1, i);
+//         }
+//         count as i32
+//     }
+// }
+
+// Constify (because I can)
 impl Solution {
-    pub fn count_substrings(s: String) -> i32 {
-        const fn palindromes_from(s: &[u8], mut l: usize, mut r: usize) -> u32 {
-            let n = s.len();
+    pub const fn count_subbytes(s: &[u8]) -> u32 {
+        const fn palindromes_from(s: &[u8], mut l: u32, mut r: u32) -> u32 {
+            let n = s.len() as u32;
             let mut count = 0;
-            while l > 0 && r < n - 1 && s[l - 1] == s[r + 1] {
+            while l > 0 && r < n - 1 && s[(l - 1) as usize] == s[(r + 1) as usize] {
                 l -= 1;
                 r += 1;
                 count += 1;
             }
             count
         }
-        let s = s.into_bytes();
-        let n = s.len();
-        let mut count = n as u32;
-        for i in 0..n.saturating_sub(1) {
+        let n = s.len() as u32;
+        let mut count = n;
+        let nm1 = n.saturating_sub(1);
+        let mut i = 0u32;
+        while i < nm1 {
             count += palindromes_from(&s, i, i);
             count += palindromes_from(&s, i + 1, i);
+            i += 1;
         }
-        count as i32
+        count
+    }
+    pub fn count_substrs(s: &str) -> i32 {
+        Self::count_subbytes(s.as_bytes()) as i32
+    }
+    pub fn count_substrings(s: String) -> i32 {
+        Self::count_subbytes(&s.into_bytes()) as i32
     }
 }
 
