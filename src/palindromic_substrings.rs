@@ -3,42 +3,90 @@
 pub struct Solution;
 
 // Odd- and Even-centered palindromes
+// impl Solution {
+//     fn odd_palindromes_centered_at(s: &[u8], i: usize) -> u32 {
+//         let n = s.len();
+//         let mut count = 1;
+//         let mut l = i;
+//         let mut r = i;
+//         while l > 0 && r < n - 1 && s[l - 1] == s[r + 1] {
+//             l -= 1;
+//             r += 1;
+//             count += 1;
+//         }
+//         count
+//     }
+//     fn even_palindromes_centered_at(s: &[u8], i: usize) -> u32 {
+//         let nm1 = s.len() - 1;
+//         let mut count = 0;
+//         let mut l = i + 1;
+//         let mut r = i;
+//         while l > 0 && r < nm1 && s[l - 1] == s[r + 1] {
+//             l -= 1;
+//             r += 1;
+//             count += 1;
+//         }
+//         count
+//     }
+//     pub fn count_substrings(s: String) -> i32 {
+//         let s = s.into_bytes();
+//         let n = s.len();
+//         let mut count = 0;
+//         for i in 0..n {
+//             count += Self::odd_palindromes_centered_at(&s, i);
+//             count += Self::even_palindromes_centered_at(&s, i);
+//         }
+//         count as i32
+//     }
+// }
+
+// One-helper optimization
 impl Solution {
-    fn odd_palindromes_centered_at(s: &[u8], i: usize) -> u32 {
-        let n = s.len();
-        let mut count = 1;
-        let mut l = i;
-        let mut r = i;
-        while l > 0 && r < n - 1 && s[l - 1] == s[r + 1] {
-            l -= 1;
-            r += 1;
-            count += 1;
-        }
-        count
-    }
-    fn even_palindromes_centered_at(s: &[u8], i: usize) -> u32 {
-        let nm1 = s.len() - 1;
-        let mut count = 0;
-        let mut l = i + 1;
-        let mut r = i;
-        while l > 0 && r < nm1 && s[l - 1] == s[r + 1] {
-            l -= 1;
-            r += 1;
-            count += 1;
-        }
-        count
-    }
     pub fn count_substrings(s: String) -> i32 {
+        const fn palindromes_from(s: &[u8], mut l: usize, mut r: usize) -> u32 {
+            let n = s.len();
+            let mut count = 0;
+            while l > 0 && r < n - 1 && s[l - 1] == s[r + 1] {
+                l -= 1;
+                r += 1;
+                count += 1;
+            }
+            count
+        }
         let s = s.into_bytes();
         let n = s.len();
-        let mut count = 0;
-        for i in 0..n {
-            count += Self::odd_palindromes_centered_at(&s, i);
-            count += Self::even_palindromes_centered_at(&s, i);
+        let mut count = n as u32;
+        for i in 0..n.saturating_sub(1) {
+            count += palindromes_from(&s, i, i);
+            count += palindromes_from(&s, i + 1, i);
         }
         count as i32
     }
 }
+
+// Lambda overoptimization (slower)
+// impl Solution {
+//     pub fn count_substrings(s: String) -> i32 {
+//         let s = s.into_bytes();
+//         let n = s.len();
+//         let mut count = n as u32;
+//         let nm1 = n.saturating_sub(1);
+//         let palindromes_from = |mut l: usize, mut r: usize| -> u32 {
+//             let mut count = 0;
+//             while l > 0 && r < nm1 && s[l - 1] == s[r + 1] {
+//                 l -= 1;
+//                 r += 1;
+//                 count += 1;
+//             }
+//             count
+//         };
+//         for i in 0..nm1 {
+//             count += palindromes_from(i, i);
+//             count += palindromes_from(i + 1, i);
+//         }
+//         count as i32
+//     }
+// }
 
 #[cfg(test)]
 mod tests {
