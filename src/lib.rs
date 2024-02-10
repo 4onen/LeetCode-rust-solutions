@@ -100,6 +100,7 @@ pub mod ones_minus_zeroes;
 pub mod out_of_boundary_paths;
 pub mod palindrome_linked_list;
 pub mod palindrome_num;
+pub mod palindromic_substrings;
 pub mod partition_array_for_maximum_sum;
 pub mod paths_crossing;
 pub mod perfect_squares;
