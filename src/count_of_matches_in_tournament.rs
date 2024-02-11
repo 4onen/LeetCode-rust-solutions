@@ -3,7 +3,7 @@
 pub struct Solution;
 
 impl Solution {
-    pub fn number_of_matches(n: i32) -> i32 {
+    pub const fn number_of_matches(n: i32) -> i32 {
         let halved = n >> 1;
         if n <= 1 {
             0

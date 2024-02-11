@@ -16,14 +16,30 @@ pub struct Solution;
 // }
 
 // Constant Space Sol'n
+// impl Solution {
+//     pub fn climb_stairs(n: i32) -> i32 {
+//         let mut one_back = 1;
+//         let mut two_back = 1;
+//         for _ in 2..=n {
+//             let tmp = one_back + two_back;
+//             two_back = one_back;
+//             one_back = tmp;
+//         }
+//         one_back
+//     }
+// }
+
+// Const constant space sol'n
 impl Solution {
-    pub fn climb_stairs(n: i32) -> i32 {
+    pub const fn climb_stairs(n: i32) -> i32 {
         let mut one_back = 1;
         let mut two_back = 1;
-        for _ in 2..=n {
+        let mut i = 2;
+        while i <= n {
             let tmp = one_back + two_back;
             two_back = one_back;
             one_back = tmp;
+            i += 1;
         }
         one_back
     }

@@ -86,7 +86,7 @@ pub mod min_changes_to_make_alternating_binary_string;
 pub mod min_difficulty_job_schedule;
 pub mod minimum_falling_path_sum;
 pub mod minimum_number_of_steps_to_make_two_strings_anagram;
-pub mod minimum_one_bit_operations;
+pub mod minimum_one_bit_operations_to_make_integers_zero;
 pub mod minimum_time_to_make_rope_colorful;
 pub mod minimum_window_substring;
 pub mod my_atoi;

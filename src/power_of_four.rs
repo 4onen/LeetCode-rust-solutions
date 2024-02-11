@@ -3,7 +3,7 @@
 pub struct Solution;
 
 impl Solution {
-    pub fn is_power_of_four(n: i32) -> bool {
+    pub const fn is_power_of_four(n: i32) -> bool {
         // Make sure the number is at least a power of two
         (n.count_ones() == 1) && 
         // Make sure the number of trailing zeros is even

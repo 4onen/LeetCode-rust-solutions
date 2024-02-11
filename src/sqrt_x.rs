@@ -2,22 +2,42 @@
 
 pub struct Solution;
 
+// Original
+// impl Solution {
+//     pub fn my_sqrt(x: i32) -> i32 {
+//         if x == 0 {
+//             return 0;
+//         }
+//         let mut low = 1;
+//         let mut high = std::cmp::min(
+//             46340, // sqrt(i32::MAX)
+//             x / 2 + 1,
+//         );
+//         while low <= high {
+//             let mid = low + (high - low) / 2;
+//             let mid_squared = mid * mid;
+//             if mid_squared == x {
+//                 return mid;
+//             } else if mid_squared < x {
+//                 low = mid + 1;
+//             } else {
+//                 high = mid - 1;
+//             }
+//         }
+//         high
+//     }
+// }
+
 impl Solution {
-    pub fn my_sqrt(x: i32) -> i32 {
-        if x == 0 {
-            return 0;
-        }
-
+    pub const fn my_sqrt(x: i32) -> i32 {
         let mut low = 1;
-        let mut high = std::cmp::min(
-            46340, // sqrt(i32::MAX)
-            x / 2 + 1,
-        );
-
+        let mut high = x / 2 + 1;
+        if high > 46340 {
+            high = 46340; // sqrt(i32::MAX)
+        }
         while low <= high {
             let mid = low + (high - low) / 2;
             let mid_squared = mid * mid;
-
             if mid_squared == x {
                 return mid;
             } else if mid_squared < x {
@@ -26,7 +46,6 @@ impl Solution {
                 high = mid - 1;
             }
         }
-
         high
     }
 }
