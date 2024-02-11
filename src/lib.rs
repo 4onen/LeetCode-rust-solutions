@@ -14,6 +14,7 @@ pub mod check_if_all_as_appear_before_all_bs;
 pub mod check_if_array_is_sorted_and_rotated;
 pub mod check_if_bitwise_or_has_trailing_zeroes;
 pub mod check_if_numbers_are_ascending_in_a_sequence;
+pub mod cherry_pickup;
 pub mod cherry_pickup_ii;
 pub mod climbing_stairs;
 pub mod combination_sum;
