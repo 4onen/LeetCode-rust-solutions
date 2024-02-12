@@ -66,6 +66,7 @@ pub mod longest_common_subsequence;
 pub mod longest_increasing_subsequence;
 pub mod longest_palindromic_substring;
 pub mod longest_substring_without_repeating_characters;
+pub mod majority_element;
 pub mod make_all_strings_equal;
 pub mod matrix_diagonal_sum;
 pub mod max_product_two_elements;
