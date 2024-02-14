@@ -113,6 +113,7 @@ pub mod power_of_four;
 pub mod powx_n;
 pub mod pseudo_palindromic_paths_in_a_binary_tree;
 pub mod range_sum_of_bst;
+pub mod rearrange_array_elements_by_sign;
 pub mod regex_match_v2;
 pub mod remove_duplicates_from_sorted_list;
 pub mod remove_element;
