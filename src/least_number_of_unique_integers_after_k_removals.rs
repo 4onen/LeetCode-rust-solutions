@@ -7,7 +7,7 @@ impl Solution {
     pub fn find_least_num_of_unique_ints(arr: Vec<i32>, k: i32) -> i32 {
         let mut k = k as u32;
         let mut map = std::collections::HashMap::new();
-        for &n in &arr {
+        for n in arr {
             *map.entry(n).or_insert(0) += 1u32;
         }
         let mut frequencies = map.into_values().collect::<Vec<_>>();
@@ -23,6 +23,29 @@ impl Solution {
         frequencies.len().saturating_sub(i) as i32
     }
 }
+
+// Binary heap sol'n
+// impl Solution {
+//     pub fn find_least_num_of_unique_ints(arr: Vec<i32>, k: i32) -> i32 {
+//         let mut k = k as u32;
+//         let mut map = std::collections::HashMap::new();
+//         for n in arr {
+//             *map.entry(n).or_insert(0) += 1u32;
+//         }
+//         let mut heap = map
+//             .into_values()
+//             .map(|v| std::cmp::Reverse(v))
+//             .collect::<std::collections::BinaryHeap<_>>();
+//         while let Some(&v) = heap.peek() {
+//             if k < v.0 {
+//                 break;
+//             }
+//             k -= v.0;
+//             heap.pop();
+//         }
+//         heap.len() as i32
+//     }
+// }
 
 #[cfg(test)]
 mod tests {
