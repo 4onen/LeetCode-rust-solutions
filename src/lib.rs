@@ -60,6 +60,7 @@ pub mod largest_divisible_subset;
 pub mod largest_palindromic_number;
 pub mod largest_substring_between_two_equal_characters;
 pub mod leaf_similar_trees;
+pub mod least_number_of_unique_integers_after_k_removals;
 pub mod length_of_last_word;
 pub mod letter_combinations_of_a_phone_number;
 pub mod level_order_traversal;
