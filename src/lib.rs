@@ -42,6 +42,7 @@ pub mod first_and_last_position_of_element_in_sorted_array;
 pub mod first_unique_character_in_a_string;
 pub mod food_rating_system;
 pub mod four_sum;
+pub mod furthest_building_you_can_reach;
 pub mod gas_station;
 pub mod generate_parentheses;
 pub mod get_maximum_score;
