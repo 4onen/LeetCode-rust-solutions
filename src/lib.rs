@@ -85,6 +85,7 @@ pub mod maximum_product_difference;
 pub mod maximum_profit_in_job_scheduling;
 pub mod maximum_subarray;
 pub mod mean_of_array_after_removing_some_elements;
+pub mod meeting_rooms_iii;
 pub mod merge_intervals;
 pub mod merge_k_lists;
 pub mod merge_sorted_array;
