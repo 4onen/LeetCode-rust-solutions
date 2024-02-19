@@ -114,6 +114,7 @@ pub mod paths_crossing;
 pub mod perfect_squares;
 pub mod plus_one;
 pub mod power_of_four;
+pub mod power_of_two;
 pub mod powx_n;
 pub mod pseudo_palindromic_paths_in_a_binary_tree;
 pub mod range_sum_of_bst;
