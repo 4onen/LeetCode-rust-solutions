@@ -97,6 +97,7 @@ pub mod minimum_number_of_steps_to_make_two_strings_anagram;
 pub mod minimum_one_bit_operations_to_make_integers_zero;
 pub mod minimum_time_to_make_rope_colorful;
 pub mod minimum_window_substring;
+pub mod missing_number;
 pub mod my_atoi;
 pub mod next_permutation;
 pub mod number_of_dice_rolls_with_sum;
