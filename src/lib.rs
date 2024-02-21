@@ -8,6 +8,7 @@ pub mod assign_cookies;
 pub mod average_salary_excluding_min_and_max;
 pub mod backspace_string_compare;
 pub mod binary_tree_infection;
+pub mod bitwise_and_of_numbers_range;
 pub mod buy_two_chocolates;
 pub mod calculate_money_in_leetcode_bank;
 pub mod check_if_all_as_appear_before_all_bs;
