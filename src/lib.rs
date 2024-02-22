@@ -37,6 +37,7 @@ pub mod evaluate_reverse_polish_notation;
 pub mod find_first_palindromic_string_in_the_array;
 pub mod find_players_with_zero_or_one_losses;
 pub mod find_polygon_with_the_largest_perimeter;
+pub mod find_the_town_judge;
 pub mod find_winner_on_a_tic_tac_toe_game;
 pub mod find_words_that_can_be_formed_by_chars;
 pub mod first_and_last_position_of_element_in_sorted_array;
