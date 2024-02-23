@@ -11,6 +11,7 @@ pub mod binary_tree_infection;
 pub mod bitwise_and_of_numbers_range;
 pub mod buy_two_chocolates;
 pub mod calculate_money_in_leetcode_bank;
+pub mod cheapest_flights_within_k_stops;
 pub mod check_if_all_as_appear_before_all_bs;
 pub mod check_if_array_is_sorted_and_rotated;
 pub mod check_if_bitwise_or_has_trailing_zeroes;
