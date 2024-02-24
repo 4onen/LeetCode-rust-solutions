@@ -1,0 +1,9 @@
+[package]
+name = "first_and_last_position_of_element_in_sorted_array"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+path="first_and_last_position_of_element_in_sorted_array.rs"
+
+[dependencies]

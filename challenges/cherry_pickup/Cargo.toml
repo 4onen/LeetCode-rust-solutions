@@ -1,0 +1,9 @@
+[package]
+name = "cherry_pickup"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+path="cherry_pickup.rs"
+
+[dependencies]

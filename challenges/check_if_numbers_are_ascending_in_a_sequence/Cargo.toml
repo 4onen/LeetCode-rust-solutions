@@ -1,0 +1,9 @@
+[package]
+name = "check_if_numbers_are_ascending_in_a_sequence"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+path="check_if_numbers_are_ascending_in_a_sequence.rs"
+
+[dependencies]

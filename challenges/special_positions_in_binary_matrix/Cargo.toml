@@ -1,0 +1,9 @@
+[package]
+name = "special_positions_in_binary_matrix"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+path="special_positions_in_binary_matrix.rs"
+
+[dependencies]

@@ -1,0 +1,9 @@
+[package]
+name = "three_sum_closest"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+path="three_sum_closest.rs"
+
+[dependencies]

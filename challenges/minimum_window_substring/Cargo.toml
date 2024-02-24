@@ -1,0 +1,9 @@
+[package]
+name = "minimum_window_substring"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+path="minimum_window_substring.rs"
+
+[dependencies]

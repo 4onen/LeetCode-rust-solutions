@@ -1,0 +1,10 @@
+[package]
+name = "range_sum_of_bst"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+path="range_sum_of_bst.rs"
+
+[dependencies]
+utils={path="../utils"}

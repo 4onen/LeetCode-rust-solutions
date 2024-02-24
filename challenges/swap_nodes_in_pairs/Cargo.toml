@@ -1,0 +1,10 @@
+[package]
+name = "swap_nodes_in_pairs"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+path="swap_nodes_in_pairs.rs"
+
+[dependencies]
+utils={path="../utils"}

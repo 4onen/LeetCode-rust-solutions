@@ -1,0 +1,10 @@
+[package]
+name = "reverse_linked_list_ii"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+path="reverse_linked_list_ii.rs"
+
+[dependencies]
+utils={path="../utils"}

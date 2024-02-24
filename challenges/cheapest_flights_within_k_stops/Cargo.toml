@@ -1,0 +1,9 @@
+[package]
+name = "cheapest_flights_within_k_stops"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+path="cheapest_flights_within_k_stops.rs"
+
+[dependencies]

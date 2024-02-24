@@ -1,0 +1,9 @@
+[package]
+name = "maximum_product_difference"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+path="maximum_product_difference.rs"
+
+[dependencies]

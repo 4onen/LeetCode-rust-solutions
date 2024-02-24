@@ -1,0 +1,9 @@
+[package]
+name = "meeting_rooms_iii"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+path="meeting_rooms_iii.rs"
+
+[dependencies]

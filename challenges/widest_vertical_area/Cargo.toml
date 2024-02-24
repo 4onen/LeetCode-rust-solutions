@@ -1,0 +1,9 @@
+[package]
+name = "widest_vertical_area"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+path="widest_vertical_area.rs"
+
+[dependencies]

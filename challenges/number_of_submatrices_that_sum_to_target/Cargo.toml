@@ -1,0 +1,9 @@
+[package]
+name = "number_of_submatrices_that_sum_to_target"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+path="number_of_submatrices_that_sum_to_target.rs"
+
+[dependencies]

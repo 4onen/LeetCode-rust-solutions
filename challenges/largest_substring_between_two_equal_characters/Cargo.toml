@@ -1,0 +1,9 @@
+[package]
+name = "largest_substring_between_two_equal_characters"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+path="largest_substring_between_two_equal_characters.rs"
+
+[dependencies]

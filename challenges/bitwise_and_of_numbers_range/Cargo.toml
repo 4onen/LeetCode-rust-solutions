@@ -1,0 +1,9 @@
+[package]
+name = "bitwise_and_of_numbers_range"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+path="bitwise_and_of_numbers_range.rs"
+
+[dependencies]

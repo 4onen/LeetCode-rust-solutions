@@ -1,0 +1,9 @@
+[package]
+name = "find_first_palindromic_string_in_the_array"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+path="find_first_palindromic_string_in_the_array.rs"
+
+[dependencies]

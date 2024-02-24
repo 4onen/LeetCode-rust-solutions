@@ -1,0 +1,9 @@
+[package]
+name = "unique_number_of_occurrences"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+path="unique_number_of_occurrences.rs"
+
+[dependencies]

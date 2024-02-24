@@ -1,0 +1,10 @@
+[package]
+name = "max_width_binary_tree"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+path="max_width_binary_tree.rs"
+
+[dependencies]
+utils={path="../utils"}

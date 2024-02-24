@@ -1,0 +1,9 @@
+[package]
+name = "decode_ways"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+path="decode_ways.rs"
+
+[dependencies]

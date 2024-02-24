@@ -1,0 +1,9 @@
+[package]
+name = "find_words_that_can_be_formed_by_chars"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+path="find_words_that_can_be_formed_by_chars.rs"
+
+[dependencies]

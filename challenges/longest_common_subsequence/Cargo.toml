@@ -1,0 +1,9 @@
+[package]
+name = "longest_common_subsequence"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+path="longest_common_subsequence.rs"
+
+[dependencies]

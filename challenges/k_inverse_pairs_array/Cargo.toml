@@ -1,0 +1,9 @@
+[package]
+name = "k_inverse_pairs_array"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+path="k_inverse_pairs_array.rs"
+
+[dependencies]

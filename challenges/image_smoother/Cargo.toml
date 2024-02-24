@@ -1,0 +1,9 @@
+[package]
+name = "image_smoother"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+path="image_smoother.rs"
+
+[dependencies]

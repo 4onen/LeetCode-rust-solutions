@@ -1,0 +1,10 @@
+[package]
+name = "maximum_difference_between_node_and_ancestor"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+path="maximum_difference_between_node_and_ancestor.rs"
+
+[dependencies]
+utils={path="../utils"}

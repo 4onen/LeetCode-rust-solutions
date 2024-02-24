@@ -1,0 +1,9 @@
+[package]
+name = "average_salary_excluding_min_and_max"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+path="average_salary_excluding_min_and_max.rs"
+
+[dependencies]

@@ -1,0 +1,9 @@
+[package]
+name = "implement_queue_using_stacks"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+path="implement_queue_using_stacks.rs"
+
+[dependencies]

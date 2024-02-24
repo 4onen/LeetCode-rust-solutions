@@ -1,0 +1,9 @@
+[package]
+name = "determine_if_string_halves_are_alike"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+path="determine_if_string_halves_are_alike.rs"
+
+[dependencies]

@@ -1,0 +1,9 @@
+[package]
+name = "max_product_two_elements"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+path="max_product_two_elements.rs"
+
+[dependencies]

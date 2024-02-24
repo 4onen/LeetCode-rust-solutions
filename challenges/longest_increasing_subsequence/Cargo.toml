@@ -1,0 +1,9 @@
+[package]
+name = "longest_increasing_subsequence"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+path="longest_increasing_subsequence.rs"
+
+[dependencies]

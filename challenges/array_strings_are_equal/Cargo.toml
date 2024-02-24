@@ -1,0 +1,9 @@
+[package]
+name = "array_strings_are_equal"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+path="array_strings_are_equal.rs"
+
+[dependencies]

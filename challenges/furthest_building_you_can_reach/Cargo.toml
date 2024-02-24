@@ -1,0 +1,9 @@
+[package]
+name = "furthest_building_you_can_reach"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+path="furthest_building_you_can_reach.rs"
+
+[dependencies]

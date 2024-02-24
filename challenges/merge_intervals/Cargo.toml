@@ -1,0 +1,9 @@
+[package]
+name = "merge_intervals"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+path="merge_intervals.rs"
+
+[dependencies]

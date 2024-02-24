@@ -1,0 +1,9 @@
+[package]
+name = "least_number_of_unique_integers_after_k_removals"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+path="least_number_of_unique_integers_after_k_removals.rs"
+
+[dependencies]

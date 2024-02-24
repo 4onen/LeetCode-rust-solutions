@@ -1,0 +1,10 @@
+[package]
+name = "merge_two_sorted_lists"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+path="merge_two_sorted_lists.rs"
+
+[dependencies]
+utils={path="../utils"}

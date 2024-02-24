@@ -1,0 +1,9 @@
+[package]
+name = "find_the_town_judge"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+path="find_the_town_judge.rs"
+
+[dependencies]

@@ -1,0 +1,9 @@
+[package]
+name = "simplify_path"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+path="simplify_path.rs"
+
+[dependencies]

@@ -1,0 +1,9 @@
+[package]
+name = "find_winner_on_a_tic_tac_toe_game"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+path="find_winner_on_a_tic_tac_toe_game.rs"
+
+[dependencies]

@@ -1,0 +1,10 @@
+[package]
+name = "leaf_similar_trees"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+path="leaf_similar_trees.rs"
+
+[dependencies]
+utils={path="../utils"}

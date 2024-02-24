@@ -1,0 +1,9 @@
+[package]
+name = "backspace_string_compare"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+path="backspace_string_compare.rs"
+
+[dependencies]

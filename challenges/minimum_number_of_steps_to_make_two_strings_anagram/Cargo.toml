@@ -1,0 +1,9 @@
+[package]
+name = "minimum_number_of_steps_to_make_two_strings_anagram"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+path="minimum_number_of_steps_to_make_two_strings_anagram.rs"
+
+[dependencies]

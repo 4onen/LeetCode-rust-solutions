@@ -1,0 +1,9 @@
+[package]
+name = "check_if_bitwise_or_has_trailing_zeroes"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+path="check_if_bitwise_or_has_trailing_zeroes.rs"
+
+[dependencies]

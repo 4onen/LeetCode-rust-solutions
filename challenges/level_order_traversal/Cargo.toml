@@ -1,0 +1,10 @@
+[package]
+name = "level_order_traversal"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+path="level_order_traversal.rs"
+
+[dependencies]
+utils={path="../utils"}

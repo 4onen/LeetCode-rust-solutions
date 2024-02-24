@@ -1,0 +1,9 @@
+[package]
+name = "majority_element"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+path="majority_element.rs"
+
+[dependencies]

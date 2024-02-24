@@ -1,0 +1,9 @@
+[package]
+name = "destination_city"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+path="destination_city.rs"
+
+[dependencies]

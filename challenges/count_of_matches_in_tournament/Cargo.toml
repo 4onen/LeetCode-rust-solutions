@@ -1,0 +1,9 @@
+[package]
+name = "count_of_matches_in_tournament"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+path="count_of_matches_in_tournament.rs"
+
+[dependencies]

@@ -1,0 +1,10 @@
+[package]
+name = "binary_tree_infection"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+path="binary_tree_infection.rs"
+
+[dependencies]
+utils={path="../utils"}

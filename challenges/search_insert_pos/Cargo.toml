@@ -1,0 +1,9 @@
+[package]
+name = "search_insert_pos"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+path="search_insert_pos.rs"
+
+[dependencies]

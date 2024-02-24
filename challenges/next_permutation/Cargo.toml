@@ -1,0 +1,9 @@
+[package]
+name = "next_permutation"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+path="next_permutation.rs"
+
+[dependencies]

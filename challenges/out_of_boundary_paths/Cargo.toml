@@ -1,0 +1,9 @@
+[package]
+name = "out_of_boundary_paths"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+path="out_of_boundary_paths.rs"
+
+[dependencies]

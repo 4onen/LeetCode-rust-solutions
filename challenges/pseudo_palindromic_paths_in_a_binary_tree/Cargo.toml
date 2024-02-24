@@ -1,0 +1,10 @@
+[package]
+name = "pseudo_palindromic_paths_in_a_binary_tree"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+path="pseudo_palindromic_paths_in_a_binary_tree.rs"
+
+[dependencies]
+utils={path="../utils"}

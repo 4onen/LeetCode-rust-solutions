@@ -1,0 +1,9 @@
+[package]
+name = "get_maximum_score"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+path="get_maximum_score.rs"
+
+[dependencies]

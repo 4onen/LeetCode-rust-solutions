@@ -1,0 +1,9 @@
+[package]
+name = "max_score_after_splitting_a_string"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+path="max_score_after_splitting_a_string.rs"
+
+[dependencies]

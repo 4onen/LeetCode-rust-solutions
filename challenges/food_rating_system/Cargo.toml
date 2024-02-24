@@ -1,0 +1,9 @@
+[package]
+name = "food_rating_system"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+path="food_rating_system.rs"
+
+[dependencies]

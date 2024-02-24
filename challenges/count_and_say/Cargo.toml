@@ -1,0 +1,9 @@
+[package]
+name = "count_and_say"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+path="count_and_say.rs"
+
+[dependencies]

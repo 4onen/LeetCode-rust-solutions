@@ -1,0 +1,9 @@
+[package]
+name = "sum_of_subarray_minimums"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+path="sum_of_subarray_minimums.rs"
+
+[dependencies]

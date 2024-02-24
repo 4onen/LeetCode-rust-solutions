@@ -1,0 +1,9 @@
+[package]
+name = "calculate_money_in_leetcode_bank"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+path="calculate_money_in_leetcode_bank.rs"
+
+[dependencies]

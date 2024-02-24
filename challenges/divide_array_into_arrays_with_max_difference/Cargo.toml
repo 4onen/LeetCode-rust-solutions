@@ -1,0 +1,9 @@
+[package]
+name = "divide_array_into_arrays_with_max_difference"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+path="divide_array_into_arrays_with_max_difference.rs"
+
+[dependencies]

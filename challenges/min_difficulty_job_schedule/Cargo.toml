@@ -1,0 +1,9 @@
+[package]
+name = "min_difficulty_job_schedule"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+path="min_difficulty_job_schedule.rs"
+
+[dependencies]

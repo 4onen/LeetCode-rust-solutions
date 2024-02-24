@@ -1,0 +1,9 @@
+[package]
+name = "integer_to_roman"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+path="integer_to_roman.rs"
+
+[dependencies]

@@ -1,0 +1,9 @@
+[package]
+name = "ones_minus_zeroes"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+path="ones_minus_zeroes.rs"
+
+[dependencies]

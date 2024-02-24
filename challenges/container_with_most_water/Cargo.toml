@@ -1,0 +1,9 @@
+[package]
+name = "container_with_most_water"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+path="container_with_most_water.rs"
+
+[dependencies]

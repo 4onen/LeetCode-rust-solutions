@@ -1,0 +1,9 @@
+[package]
+name = "gas_station"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+path="gas_station.rs"
+
+[dependencies]

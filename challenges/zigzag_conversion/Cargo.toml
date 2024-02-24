@@ -1,0 +1,9 @@
+[package]
+name = "zigzag_conversion"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+path="zigzag_conversion.rs"
+
+[dependencies]

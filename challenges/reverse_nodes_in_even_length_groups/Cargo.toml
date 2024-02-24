@@ -1,0 +1,10 @@
+[package]
+name = "reverse_nodes_in_even_length_groups"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+path="reverse_nodes_in_even_length_groups.rs"
+
+[dependencies]
+utils={path="../utils"}

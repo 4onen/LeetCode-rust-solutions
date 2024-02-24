@@ -1,0 +1,9 @@
+[package]
+name = "longest_palindromic_substring"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+path="longest_palindromic_substring.rs"
+
+[dependencies]

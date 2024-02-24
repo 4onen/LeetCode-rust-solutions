@@ -1,0 +1,9 @@
+[package]
+name = "my_atoi"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+path="my_atoi.rs"
+
+[dependencies]

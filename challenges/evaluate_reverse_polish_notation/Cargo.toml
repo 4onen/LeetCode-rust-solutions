@@ -1,0 +1,9 @@
+[package]
+name = "evaluate_reverse_polish_notation"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+path="evaluate_reverse_polish_notation.rs"
+
+[dependencies]

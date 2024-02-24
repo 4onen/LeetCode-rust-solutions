@@ -1,0 +1,9 @@
+[package]
+name = "find_polygon_with_the_largest_perimeter"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+path="find_polygon_with_the_largest_perimeter.rs"
+
+[dependencies]
