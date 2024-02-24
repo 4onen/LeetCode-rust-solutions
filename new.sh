@@ -17,14 +17,15 @@ fi
 # Remove query parameters from the url
 url=${url%%\?*}
 
-if [ -e "src/${project_name}.rs" ]; then
+if [ -e "challenges/${project_name}" ]; then
     echo "Project ${project_name} already exists"
     exit 1
 fi
 
-echo "Creating new project: ${project_name}.rs"
+echo "Creating new project: ${project_name}"
+mkdir -p challenges/${project_name}
 # Create the file with the leetcode template
-cat > src/${project_name}.rs <<EOF
+cat > challenges/${project_name}/${project_name}.rs <<EOF
 // $url
 
 pub struct Solution;
@@ -43,7 +44,16 @@ mod tests {
     }
 }
 EOF
-echo "pub mod ${project_name};" >> src/lib.rs
-rustfmt --edition 2021 <src/lib.rs >src/lib.rs.tmp
-code "src/${project_name}.rs"
-mv src/lib.rs.tmp src/lib.rs
+cat > challenges/${project_name}/Cargo.toml <<EOF
+[package]
+name = "${project_name}"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+doctest = false
+path="${project_name}.rs"
+
+[dependencies]
+EOF
+code "challenges/${project_name}/${project_name}.rs"
