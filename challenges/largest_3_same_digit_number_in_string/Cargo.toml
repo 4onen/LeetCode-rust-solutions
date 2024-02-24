@@ -4,6 +4,7 @@ version = "0.1.0"
 edition = "2021"
 
 [lib]
+doctest = false
 path="largest_3_same_digit_number_in_string.rs"
 
 [dependencies]

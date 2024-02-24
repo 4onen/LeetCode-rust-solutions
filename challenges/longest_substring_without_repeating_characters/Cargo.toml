@@ -4,6 +4,7 @@ version = "0.1.0"
 edition = "2021"
 
 [lib]
+doctest = false
 path="longest_substring_without_repeating_characters.rs"
 
 [dependencies]

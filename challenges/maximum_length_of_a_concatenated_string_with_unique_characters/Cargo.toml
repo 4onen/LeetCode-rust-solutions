@@ -4,6 +4,7 @@ version = "0.1.0"
 edition = "2021"
 
 [lib]
+doctest = false
 path="maximum_length_of_a_concatenated_string_with_unique_characters.rs"
 
 [dependencies]

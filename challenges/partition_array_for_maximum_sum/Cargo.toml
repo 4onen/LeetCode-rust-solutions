@@ -4,6 +4,7 @@ version = "0.1.0"
 edition = "2021"
 
 [lib]
+doctest = false
 path="partition_array_for_maximum_sum.rs"
 
 [dependencies]

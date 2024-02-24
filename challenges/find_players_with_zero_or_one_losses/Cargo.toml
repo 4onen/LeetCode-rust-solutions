@@ -4,6 +4,7 @@ version = "0.1.0"
 edition = "2021"
 
 [lib]
+doctest = false
 path="find_players_with_zero_or_one_losses.rs"
 
 [dependencies]

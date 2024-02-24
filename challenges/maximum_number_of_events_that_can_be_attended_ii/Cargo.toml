@@ -4,6 +4,7 @@ version = "0.1.0"
 edition = "2021"
 
 [lib]
+doctest = false
 path="maximum_number_of_events_that_can_be_attended_ii.rs"
 
 [dependencies]

@@ -4,6 +4,7 @@ version = "0.1.0"
 edition = "2021"
 
 [lib]
+doctest = false
 path="replace_questions_avoid_consecutive_repeating_characters.rs"
 
 [dependencies]

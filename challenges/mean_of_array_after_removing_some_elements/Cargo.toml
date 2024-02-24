@@ -4,6 +4,7 @@ version = "0.1.0"
 edition = "2021"
 
 [lib]
+doctest = false
 path="mean_of_array_after_removing_some_elements.rs"
 
 [dependencies]

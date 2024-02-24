@@ -4,6 +4,7 @@ version = "0.1.0"
 edition = "2021"
 
 [lib]
+doctest = false
 path="number_of_operations_to_make_an_array_empty.rs"
 
 [dependencies]

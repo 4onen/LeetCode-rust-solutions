@@ -4,6 +4,7 @@ version = "0.1.0"
 edition = "2021"
 
 [lib]
+doctest = false
 path="check_if_all_as_appear_before_all_bs.rs"
 
 [dependencies]

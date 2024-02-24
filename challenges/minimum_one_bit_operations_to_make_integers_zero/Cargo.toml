@@ -4,6 +4,7 @@ version = "0.1.0"
 edition = "2021"
 
 [lib]
+doctest = false
 path="minimum_one_bit_operations_to_make_integers_zero.rs"
 
 [dependencies]

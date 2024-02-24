@@ -4,6 +4,7 @@ version = "0.1.0"
 edition = "2021"
 
 [lib]
+doctest = false
 path="merge_two_sorted_lists.rs"
 
 [dependencies]

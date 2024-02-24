@@ -4,6 +4,7 @@ version = "0.1.0"
 edition = "2021"
 
 [lib]
+doctest = false
 path="least_number_of_unique_integers_after_k_removals.rs"
 
 [dependencies]

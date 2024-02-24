@@ -4,6 +4,7 @@ version = "0.1.0"
 edition = "2021"
 
 [lib]
+doctest = false
 path="first_and_last_position_of_element_in_sorted_array.rs"
 
 [dependencies]

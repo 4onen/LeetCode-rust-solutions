@@ -9,4 +9,5 @@ edition = "2021"
 rand = {version="0.6.5", features=["std"], default-features=false}
 
 [lib]
+doctest = false
 path="insert_delete_getrandom_o1.rs"
