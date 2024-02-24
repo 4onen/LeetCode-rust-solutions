@@ -19,5 +19,5 @@ for file in ${FILES[@]}; do
     fi
 done
 
-git add src/*
+git add src
 git commit -m "Completed $(echo ${FILES[@]%.rs} | tr ' ' ', ')"
