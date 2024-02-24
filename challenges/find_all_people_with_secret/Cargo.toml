@@ -1,0 +1,10 @@
+[package]
+name = "find_all_people_with_secret"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+doctest = false
+path="find_all_people_with_secret.rs"
+
+[dependencies]
