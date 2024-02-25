@@ -1,0 +1,10 @@
+[package]
+name = "greatest_common_divisor_traversal"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+doctest = false
+path="greatest_common_divisor_traversal.rs"
+
+[dependencies]
