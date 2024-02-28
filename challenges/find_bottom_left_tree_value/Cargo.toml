@@ -1,0 +1,11 @@
+[package]
+name = "find_bottom_left_tree_value"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+doctest = false
+path="find_bottom_left_tree_value.rs"
+
+[dependencies]
+utils={path="../utils"}
