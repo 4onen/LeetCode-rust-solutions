@@ -1,0 +1,11 @@
+[package]
+name = "even_odd_tree"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+doctest = false
+path="even_odd_tree.rs"
+
+[dependencies]
+utils={path="../utils"}
