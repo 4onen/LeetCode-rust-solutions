@@ -1,0 +1,10 @@
+[package]
+name = "squares_of_a_sorted_array"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+doctest = false
+path="squares_of_a_sorted_array.rs"
+
+[dependencies]
