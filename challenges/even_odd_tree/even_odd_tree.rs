@@ -125,44 +125,79 @@ pub struct Solution;
 // }
 
 // in-band signalling sol'n
+// use std::cell::RefCell;
+// use std::rc::Rc;
+// impl Solution {
+//     pub fn is_even_odd_tree(root: Option<Rc<RefCell<TreeNode>>>) -> bool {
+//         let mut queue = std::collections::VecDeque::new();
+//         queue.extend([root, None]);
+//         let mut level_odd = false;
+//         let mut prev_value = 0i32;
+//         loop {
+//             match queue.pop_front() {
+//                 None => break true,
+//                 Some(None) => {
+//                     level_odd = !level_odd;
+//                     prev_value = if level_odd { i32::MAX } else { 0 };
+//                     if !queue.is_empty() {
+//                         queue.push_back(None);
+//                     }
+//                 }
+//                 Some(Some(node)) => {
+//                     let mut node = node.borrow_mut();
+//                     let value = node.val;
+//                     let odd_value = value % 2 == 1;
+//                     if level_odd == odd_value {
+//                         return false;
+//                     }
+//                     match prev_value.cmp(&value) {
+//                         std::cmp::Ordering::Less if !level_odd => {}
+//                         std::cmp::Ordering::Greater if level_odd => {}
+//                         _ => return false,
+//                     }
+//                     prev_value = value;
+//                     if node.left.is_some() {
+//                         queue.push_back(node.left.take());
+//                     }
+//                     if node.right.is_some() {
+//                         queue.push_back(node.right.take());
+//                     }
+//                 }
+//             }
+//         }
+//     }
+// }
+
+// intelligent iteration sol'n
 use std::cell::RefCell;
 use std::rc::Rc;
 impl Solution {
     pub fn is_even_odd_tree(root: Option<Rc<RefCell<TreeNode>>>) -> bool {
         let mut queue = std::collections::VecDeque::new();
-        queue.extend([root, None]);
+        queue.push_back(root);
         let mut level_odd = false;
-        let mut prev_value = 0i32;
-        loop {
-            match queue.pop_front() {
-                None => break true,
-                Some(None) => {
-                    level_odd = !level_odd;
-                    prev_value = if level_odd { i32::MAX } else { 0 };
-                    if !queue.is_empty() {
-                        queue.push_back(None);
-                    }
+        'outer: loop {
+            let mut prev_value = if level_odd { i32::MAX } else { 0 };
+            for _ in 0..queue.len() {
+                let Some(Some(node)) = queue.pop_front() else {
+                    continue;
+                };
+                let node = node.borrow();
+                let value = node.val;
+                let odd_value = node.val % 2 == 1;
+                if level_odd == odd_value
+                    || (!level_odd && prev_value >= value)
+                    || (level_odd && prev_value <= value)
+                {
+                    break 'outer false;
                 }
-                Some(Some(node)) => {
-                    let mut node = node.borrow_mut();
-                    let value = node.val;
-                    let odd_value = value % 2 == 1;
-                    if level_odd == odd_value {
-                        return false;
-                    }
-                    match prev_value.cmp(&value) {
-                        std::cmp::Ordering::Less if !level_odd => {}
-                        std::cmp::Ordering::Greater if level_odd => {}
-                        _ => return false,
-                    }
-                    prev_value = value;
-                    if node.left.is_some() {
-                        queue.push_back(node.left.take());
-                    }
-                    if node.right.is_some() {
-                        queue.push_back(node.right.take());
-                    }
-                }
+                prev_value = value;
+                queue.push_back(node.left.clone());
+                queue.push_back(node.right.clone());
+            }
+            level_odd = !level_odd;
+            if queue.is_empty() {
+                break 'outer true;
             }
         }
     }
