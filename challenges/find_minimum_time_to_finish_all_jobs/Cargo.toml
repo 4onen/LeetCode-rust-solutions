@@ -1,0 +1,10 @@
+[package]
+name = "find_minimum_time_to_finish_all_jobs"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+doctest = false
+path="find_minimum_time_to_finish_all_jobs.rs"
+
+[dependencies]
