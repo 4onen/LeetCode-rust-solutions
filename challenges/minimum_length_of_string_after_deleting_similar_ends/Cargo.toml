@@ -1,0 +1,10 @@
+[package]
+name = "minimum_length_of_string_after_deleting_similar_ends"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+doctest = false
+path="minimum_length_of_string_after_deleting_similar_ends.rs"
+
+[dependencies]
