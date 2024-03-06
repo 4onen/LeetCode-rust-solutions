@@ -1,4 +1,6 @@
 // https://leetcode.com/problems/find-minimum-time-to-finish-all-jobs/
+// Identical to https://leetcode.com/problems/fair-distribution-of-cookies/
+// bar some constraints.
 
 pub struct Solution;
 
