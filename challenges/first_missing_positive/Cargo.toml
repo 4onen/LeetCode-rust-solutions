@@ -1,0 +1,10 @@
+[package]
+name = "first_missing_positive"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+doctest = false
+path="first_missing_positive.rs"
+
+[dependencies]
