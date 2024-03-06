@@ -99,6 +99,55 @@ pub struct Solution;
 // }
 
 // Exponential sol'n (two-row DP)
+// impl Solution {
+//     pub fn minimum_time_required(jobs: Vec<i32>, k: i32) -> i32 {
+//         let n = jobs.len() as u8;
+//         assert!(n >= 1);
+//         assert!(n <= 12);
+//         if k == 1 {
+//             return jobs.into_iter().sum();
+//         }
+//         assert!(k > 1);
+//         if k == n as i32 {
+//             return jobs.into_iter().max().unwrap();
+//         }
+//         assert!(k < n as i32);
+//         // Precompute the time taken for each subset of jobs.
+//         let job_assignment_cost = (0..(1 << n))
+//             .map(|i| {
+//                 (0..n)
+//                     .filter(|&j| i & 1 << j != 0)
+//                     .map(|j| jobs[j as usize])
+//                     .sum::<i32>()
+//             })
+//             .collect::<Vec<_>>();
+//         // Track the minimum time taken for each subset of jobs
+//         // for each number of workers.
+//         let mut curr = vec![0; 1 << n];
+//         let mut prev = job_assignment_cost.clone(); // 1 worker
+//         for _ in 1..k as u8 {
+//             for j in 0..1u16 << n {
+//                 let mut min = std::i32::MAX;
+//                 for l in 0..1u16 << n {
+//                     if j & l == l {
+//                         min = std::cmp::min(
+//                             min,
+//                             std::cmp::max(
+//                                 prev[j as usize - l as usize],
+//                                 job_assignment_cost[l as usize],
+//                             ),
+//                         );
+//                     }
+//                 }
+//                 curr[j as usize] = min;
+//             }
+//             std::mem::swap(&mut curr, &mut prev);
+//         }
+//         prev[(1 << n) - 1]
+//     }
+// }
+
+// Exponential sol'n (two-row DP) iterator optimizations
 impl Solution {
     pub fn minimum_time_required(jobs: Vec<i32>, k: i32) -> i32 {
         let n = jobs.len() as u8;
@@ -127,18 +176,18 @@ impl Solution {
         let mut prev = job_assignment_cost.clone(); // 1 worker
         for _ in 1..k as u8 {
             for j in 0..1u16 << n {
-                let mut min = std::i32::MAX;
-                for l in 0..1u16 << n {
-                    if j & l == l {
-                        min = std::cmp::min(
-                            min,
-                            std::cmp::max(
-                                prev[j as usize - l as usize],
-                                job_assignment_cost[l as usize],
-                            ),
+                let min = (0..1u16 << n)
+                    .filter(|&l| j & l == l)
+                    .map(|l| {
+                        let v = std::cmp::max(
+                            prev[j as usize - l as usize],
+                            job_assignment_cost[l as usize],
                         );
-                    }
-                }
+                        unsafe { std::num::NonZeroI32::new_unchecked(v) }
+                    })
+                    .min()
+                    .unwrap_or(unsafe { std::num::NonZeroI32::new_unchecked(i32::MAX) })
+                    .get();
                 curr[j as usize] = min;
             }
             std::mem::swap(&mut curr, &mut prev);
