@@ -1,0 +1,11 @@
+[package]
+name = "find_the_minimum_and_maximum_number_of_nodes_between_critical_points"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+doctest = false
+path="find_the_minimum_and_maximum_number_of_nodes_between_critical_points.rs"
+
+[dependencies]
+utils = { path = "../utils" }
