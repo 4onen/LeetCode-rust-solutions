@@ -1,0 +1,10 @@
+[package]
+name = "longest_cycle_in_a_graph"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+doctest = false
+path="longest_cycle_in_a_graph.rs"
+
+[dependencies]
