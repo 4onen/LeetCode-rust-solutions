@@ -1,0 +1,10 @@
+[package]
+name = "longest_well_performing_interval"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+doctest = false
+path="longest_well_performing_interval.rs"
+
+[dependencies]
