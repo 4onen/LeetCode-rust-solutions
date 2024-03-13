@@ -176,59 +176,204 @@ pub struct Solution;
 // }
 
 // Backtracking on copied board
+// impl Solution {
+//     pub fn solve_sudoku(board: &mut Vec<Vec<char>>) {
+//         // First, copy the board into 81 bytes of stack memory
+//         // One cache line, should be very, very fast.
+//         let mut hot_board = [[0u8; 9]; 9];
+//         for (i, row) in board.iter().enumerate() {
+//             for (j, &c) in row.iter().enumerate() {
+//                 if c != '.' {
+//                     hot_board[i][j] = c as u8 - b'0';
+//                 }
+//             }
+//         }
+//         // Second, define a function to check if a digit is valid for a given
+//         // row, column, or box in the hot board.
+//         fn valid_for_space(hot_board: &[[u8; 9]; 9], c: u8, row_idx: u8, col_idx: u8) -> bool {
+//             let row = &hot_board[row_idx as usize];
+//             let box_row = row_idx / 3 * 3;
+//             let box_col = col_idx / 3 * 3;
+//             for i in 0..9 {
+//                 if row[i as usize] == c {
+//                     return false;
+//                 }
+//                 if hot_board[i as usize][col_idx as usize] == c {
+//                     return false;
+//                 }
+//                 if hot_board[(box_row + i / 3) as usize][(box_col + i % 3) as usize] == c {
+//                     return false;
+//                 }
+//             }
+//             true
+//         }
+//         // Third, define a function to backtrack on the hot board.
+//         fn backtrack(hot_board: &mut [[u8; 9]; 9], mut idx: u8) -> bool {
+//             let mut row_idx = idx / 9;
+//             let mut col_idx = idx % 9;
+//             loop {
+//                 if idx >= 81 {
+//                     return true;
+//                 }
+//                 if hot_board[row_idx as usize][col_idx as usize] == 0 {
+//                     break;
+//                 }
+//                 idx += 1;
+//                 row_idx = idx / 9;
+//                 col_idx = idx % 9;
+//             }
+//             for c in 1..=9 {
+//                 if valid_for_space(&hot_board, c, row_idx, col_idx) {
+//                     hot_board[row_idx as usize][col_idx as usize] = c;
+//                     if backtrack(hot_board, idx + 1) {
+//                         return true;
+//                     }
+//                     hot_board[row_idx as usize][col_idx as usize] = 0;
+//                 }
+//             }
+//             false
+//         }
+//         // Fourth, solve.
+//         backtrack(&mut hot_board, 0);
+//         // Fifth, copy the hot board back into the original board.
+//         for (i, row) in board.iter_mut().enumerate() {
+//             for (j, c) in row.iter_mut().enumerate() {
+//                 *c = (hot_board[i][j] + b'0') as char;
+//             }
+//         }
+//     }
+// }
+
+// Backtracking on copied 1D board
+// impl Solution {
+//     pub fn solve_sudoku(board: &mut Vec<Vec<char>>) {
+//         type HotBoard = [u8; 81];
+//         #[inline]
+//         fn cell_from_pos(i: u8, j: u8) -> u8 {
+//             i * 9 + j
+//         }
+//         // First, copy the board into 81 bytes of stack memory
+//         // One cache line, should be very, very fast.
+//         let mut hot_board: HotBoard = [0u8; 81];
+//         for (i, row) in board.iter().enumerate() {
+//             for (j, &c) in row.iter().enumerate() {
+//                 if c != '.' {
+//                     hot_board[cell_from_pos(i as u8, j as u8) as usize] = c as u8 - b'0';
+//                 }
+//             }
+//         }
+//         // Second, define a function to check if a digit is valid for a given
+//         // row, column, or box in the hot board.
+//         fn valid_for_space(hot_board: &HotBoard, c: u8, idx: u8) -> bool {
+//             let row_idx = idx / 9;
+//             let col_idx = idx % 9;
+//             let box_row = row_idx / 3 * 3;
+//             let box_col = col_idx / 3 * 3;
+//             for i in 0..9 {
+//                 if hot_board[cell_from_pos(row_idx, i) as usize] == c {
+//                     return false;
+//                 }
+//                 if hot_board[cell_from_pos(i, col_idx) as usize] == c {
+//                     return false;
+//                 }
+//                 if hot_board[cell_from_pos(box_row + i / 3, box_col + i % 3) as usize] == c {
+//                     return false;
+//                 }
+//             }
+//             true
+//         }
+//         // Third, define a function to backtrack on the hot board.
+//         fn backtrack(hot_board: &mut HotBoard, mut idx: u8) -> bool {
+//             loop {
+//                 if idx >= 81 {
+//                     return true;
+//                 }
+//                 if hot_board[idx as usize] == 0 {
+//                     break;
+//                 }
+//                 idx += 1;
+//             }
+//             for c in 1..=9 {
+//                 if valid_for_space(&hot_board, c, idx) {
+//                     hot_board[idx as usize] = c;
+//                     if backtrack(hot_board, idx + 1) {
+//                         return true;
+//                     }
+//                     hot_board[idx as usize] = 0;
+//                 }
+//             }
+//             false
+//         }
+//         // Fourth, solve.
+//         backtrack(&mut hot_board, 0);
+//         // Fifth, copy the hot board back into the original board.
+//         for (i, row) in board.iter_mut().enumerate() {
+//             for (j, c) in row.iter_mut().enumerate() {
+//                 *c = (hot_board[cell_from_pos(i as u8, j as u8) as usize] + b'0') as char;
+//             }
+//         }
+//     }
+// }
+
+// Backtracking on copied 1D board with bitset
 impl Solution {
     pub fn solve_sudoku(board: &mut Vec<Vec<char>>) {
+        type Bitset = u16;
+        type HotBoard = [u8; 81];
+        #[inline]
+        fn cell_from_pos(i: u8, j: u8) -> u8 {
+            i * 9 + j
+        }
+        #[inline]
+        fn bit_for_digit(c: u8) -> Bitset {
+            1 << c
+        }
         // First, copy the board into 81 bytes of stack memory
         // One cache line, should be very, very fast.
-        let mut hot_board = [[0u8; 9]; 9];
+        let mut hot_board: HotBoard = [0u8; 81];
         for (i, row) in board.iter().enumerate() {
             for (j, &c) in row.iter().enumerate() {
                 if c != '.' {
-                    hot_board[i][j] = c as u8 - b'0';
+                    hot_board[cell_from_pos(i as u8, j as u8) as usize] = c as u8 - b'0';
                 }
             }
         }
         // Second, define a function to check if a digit is valid for a given
         // row, column, or box in the hot board.
-        fn valid_for_space(hot_board: &[[u8; 9]; 9], c: u8, row_idx: u8, col_idx: u8) -> bool {
-            let row = &hot_board[row_idx as usize];
+        fn valid_for_space(hot_board: &HotBoard, idx: u8) -> Bitset {
+            let row_idx = idx / 9;
+            let col_idx = idx % 9;
             let box_row = row_idx / 3 * 3;
             let box_col = col_idx / 3 * 3;
+            let mut bitset = 0;
             for i in 0..9 {
-                if row[i as usize] == c {
-                    return false;
-                }
-                if hot_board[i as usize][col_idx as usize] == c {
-                    return false;
-                }
-                if hot_board[(box_row + i / 3) as usize][(box_col + i % 3) as usize] == c {
-                    return false;
-                }
+                bitset |= bit_for_digit(hot_board[cell_from_pos(row_idx, i) as usize]);
+                bitset |= bit_for_digit(hot_board[cell_from_pos(i, col_idx) as usize]);
+                bitset |= bit_for_digit(
+                    hot_board[cell_from_pos(box_row + i / 3, box_col + i % 3) as usize],
+                );
             }
-            true
+            bitset | 1
         }
         // Third, define a function to backtrack on the hot board.
-        fn backtrack(hot_board: &mut [[u8; 9]; 9], mut idx: u8) -> bool {
-            let mut row_idx = idx / 9;
-            let mut col_idx = idx % 9;
+        fn backtrack(hot_board: &mut HotBoard, mut idx: u8) -> bool {
             loop {
                 if idx >= 81 {
                     return true;
                 }
-                if hot_board[row_idx as usize][col_idx as usize] == 0 {
+                if hot_board[idx as usize] == 0 {
                     break;
                 }
                 idx += 1;
-                row_idx = idx / 9;
-                col_idx = idx % 9;
             }
-            for c in 1..=9 {
-                if valid_for_space(&hot_board, c, row_idx, col_idx) {
-                    hot_board[row_idx as usize][col_idx as usize] = c;
+            let bitset = valid_for_space(hot_board, idx);
+            for c in bitset.leading_ones() as u8..=9 {
+                if bitset & bit_for_digit(c) == 0 {
+                    hot_board[idx as usize] = c;
                     if backtrack(hot_board, idx + 1) {
                         return true;
                     }
-                    hot_board[row_idx as usize][col_idx as usize] = 0;
+                    hot_board[idx as usize] = 0;
                 }
             }
             false
@@ -238,7 +383,7 @@ impl Solution {
         // Fifth, copy the hot board back into the original board.
         for (i, row) in board.iter_mut().enumerate() {
             for (j, c) in row.iter_mut().enumerate() {
-                *c = (hot_board[i][j] + b'0') as char;
+                *c = (hot_board[cell_from_pos(i as u8, j as u8) as usize] + b'0') as char;
             }
         }
     }
