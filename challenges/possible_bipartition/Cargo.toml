@@ -1,0 +1,10 @@
+[package]
+name = "possible_bipartition"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+doctest = false
+path="possible_bipartition.rs"
+
+[dependencies]
