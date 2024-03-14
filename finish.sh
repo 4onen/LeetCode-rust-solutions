@@ -20,4 +20,4 @@ for file in ${FILES[@]}; do
 done
 
 git add challenges
-git commit -m "Completed $(echo ${FILES[@]%.rs} | tr ' ' ', ')"
+git commit -m "Add solution for $(echo ${FILES[@]%.rs} | tr ' ' ', ')"
