@@ -49,6 +49,64 @@ pub struct Solution;
 // Yeah so turns out this only works if the goal is 0. Oops.
 
 // Two pointer sol'n
+// impl Solution {
+//     pub fn num_subarrays_with_sum(nums: Vec<i32>, goal: i32) -> i32 {
+//         match goal {
+//             0 => {
+//                 let mut count = 0;
+//                 let mut this_zero_run = 0;
+//                 for n in nums {
+//                     match n {
+//                         0 => this_zero_run += 1,
+//                         1 => {
+//                             count += (this_zero_run * (this_zero_run + 1)) / 2;
+//                             this_zero_run = 0;
+//                         }
+//                         _ => panic!("Invalid input, must be 0 or 1"),
+//                     }
+//                 }
+//                 count + (this_zero_run * (this_zero_run + 1)) / 2
+//             }
+//             1..=30_000 if (goal as u16 <= nums.len() as u16) => {
+//                 let goal = goal as u16;
+//                 let mut count: i32 = 0;
+//                 let mut sum: u16 = nums[0] as u16;
+//                 let mut left: u16 = 0;
+//                 let mut right: u16 = 0;
+//                 'outer: loop {
+//                     if right >= nums.len() as u16 {
+//                         break 'outer;
+//                     }
+//                     while sum < goal {
+//                         right += 1;
+//                         if right < nums.len() as u16 {
+//                             sum += nums[right as usize] as u16;
+//                         } else {
+//                             break 'outer;
+//                         }
+//                     }
+//                     let right_begin = right;
+//                     loop {
+//                         right += 1;
+//                         if right >= nums.len() as u16 || nums[right as usize] != 0 {
+//                             break;
+//                         }
+//                     }
+//                     let left_begin = left;
+//                     while left < right && nums[left as usize] == 0 {
+//                         left += 1;
+//                     }
+//                     left += 1;
+//                     count += (left - left_begin) as i32 * (right - right_begin) as i32;
+//                 }
+//                 count
+//             }
+//             _ => panic!("Invalid goal, must be 0 to nums.len()"),
+//         }
+//     }
+// }
+
+// Copied from ../count_number_of_nice_subarrays/count_number_of_nice_subarrays.rs
 impl Solution {
     pub fn num_subarrays_with_sum(nums: Vec<i32>, goal: i32) -> i32 {
         match goal {
@@ -69,35 +127,17 @@ impl Solution {
             }
             1..=30_000 if (goal as u16 <= nums.len() as u16) => {
                 let goal = goal as u16;
-                let mut count: i32 = 0;
-                let mut sum: u16 = nums[0] as u16;
-                let mut left: u16 = 0;
-                let mut right: u16 = 0;
-                'outer: loop {
-                    if right >= nums.len() as u16 {
-                        break 'outer;
+                let mut count = 0;
+                let mut sum: u16 = 0;
+                let mut indices = vec![-1];
+                for i in 0..nums.len() as u16 {
+                    if nums[i as usize] == 1 {
+                        sum += 1;
+                        indices.push(i as i32);
                     }
-                    while sum < goal {
-                        right += 1;
-                        if right < nums.len() as u16 {
-                            sum += nums[right as usize] as u16;
-                        } else {
-                            break 'outer;
-                        }
+                    if let Some(idx) = sum.checked_sub(goal) {
+                        count += indices[idx as usize + 1] - indices[idx as usize];
                     }
-                    let right_begin = right;
-                    loop {
-                        right += 1;
-                        if right >= nums.len() as u16 || nums[right as usize] != 0 {
-                            break;
-                        }
-                    }
-                    let left_begin = left;
-                    while left < right && nums[left as usize] == 0 {
-                        left += 1;
-                    }
-                    left += 1;
-                    count += (left - left_begin) as i32 * (right - right_begin) as i32;
                 }
                 count
             }
