@@ -1,0 +1,10 @@
+[package]
+name = "subarray_sum_equals_k"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+doctest = false
+path="subarray_sum_equals_k.rs"
+
+[dependencies]
