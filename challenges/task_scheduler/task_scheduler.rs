@@ -124,4 +124,20 @@ mod tests {
             10_000 * 101 - 101 + 1
         );
     }
+
+    #[test]
+    fn myex1() {
+        assert_eq!(
+            Solution::least_interval(vec!['A', 'B', 'C', 'A', 'B', 'C'], 3),
+            7
+        );
+    }
+
+    #[test]
+    fn myex2() {
+        assert_eq!(
+            Solution::least_interval(vec!['A', 'B', 'A', 'C', 'A', 'D', 'A', 'E'], 2),
+            10
+        )
+    }
 }
