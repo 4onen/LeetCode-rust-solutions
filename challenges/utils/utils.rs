@@ -72,7 +72,7 @@ impl TreeNode {
 }
 
 // Definition for singly-linked list.
-#[derive(PartialEq, Eq, Clone, Debug)]
+#[derive(PartialEq, Eq, Clone)]
 pub struct ListNode {
     pub val: i32,
     pub next: Option<Box<ListNode>>,
@@ -95,5 +95,17 @@ impl ListNode {
                 Some(node.into())
             }
         }
+    }
+}
+
+impl std::fmt::Debug for ListNode {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        let mut node = self;
+        write!(f, "{}", node.val)?;
+        while let Some(next) = &node.next {
+            node = next;
+            write!(f, " -> {}", node.val)?;
+        }
+        Ok(())
     }
 }
