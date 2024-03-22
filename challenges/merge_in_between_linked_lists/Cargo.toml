@@ -1,0 +1,11 @@
+[package]
+name = "merge_in_between_linked_lists"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+doctest = false
+path="merge_in_between_linked_lists.rs"
+
+[dependencies]
+utils = {path = "../utils"}
