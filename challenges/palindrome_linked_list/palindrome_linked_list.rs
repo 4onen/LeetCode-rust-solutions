@@ -35,65 +35,87 @@ pub struct Solution;
 //     }
 // }
 
+// impl Solution {
+//     pub fn is_palindrome(head: Option<Box<ListNode>>) -> bool {
+//         head.is_none() || {
+//             let length = {
+//                 let mut length = 0;
+//                 let mut to_end = head.as_ref();
+//                 while let Some(boxed) = to_end {
+//                     length += 1;
+//                     to_end = boxed.next.as_ref();
+//                 }
+//                 length
+//             };
+//             match length {
+//                 0 | 1 => true,
+//                 2 => {
+//                     let ListNode { val, next } = *head.unwrap();
+//                     val == next.unwrap().val
+//                 }
+//                 3 => {
+//                     let ListNode { val, next } = *head.unwrap();
+//                     let val_end = next.unwrap().next.unwrap().val;
+//                     val == val_end // Doesn't matter what the middle is.
+//                 }
+//                 _ => {
+//                     let mut head_node = head.unwrap();
+//                     let middle = {
+//                         let mut to_middle = length / 2 - 1;
+//                         let mut next = &mut head_node;
+//                         while to_middle > 0 {
+//                             next = next.next.as_mut().unwrap();
+//                             to_middle -= 1;
+//                         }
+//                         next
+//                     };
+
+//                     // Reverse the second half of the list
+//                     let mut prev = middle.next.take().unwrap();
+//                     let mut next = prev.next.take();
+//                     while let Some(mut boxed) = next {
+//                         next = boxed.next.take();
+//                         boxed.next = Some(prev);
+//                         prev = boxed;
+//                     }
+//                     // Now prev is the head of the reversed second half
+//                     // Compare the two halves
+//                     let mut next_front = Some(&head_node);
+//                     let mut next_back = Some(&prev);
+//                     while let (Some(front), Some(back)) = (next_front, next_back) {
+//                         if front.val != back.val {
+//                             return false;
+//                         }
+//                         next_front = front.next.as_ref();
+//                         next_back = back.next.as_ref();
+//                     }
+
+//                     true
+//                 }
+//             }
+//         }
+//     }
+// }
+
 impl Solution {
     pub fn is_palindrome(head: Option<Box<ListNode>>) -> bool {
         head.is_none() || {
-            let length = {
-                let mut length = 0;
-                let mut to_end = head.as_ref();
-                while let Some(boxed) = to_end {
-                    length += 1;
-                    to_end = boxed.next.as_ref();
+            let values = {
+                let mut values = Vec::new();
+                let mut next = head.as_ref();
+                while let Some(boxed) = next {
+                    values.push(boxed.val as u8);
+                    next = boxed.next.as_ref();
                 }
-                length
+                values
             };
-
-            match length {
-                0 | 1 => true,
-                2 => {
-                    let ListNode { val, next } = *head.unwrap();
-                    val == next.unwrap().val
-                }
-                3 => {
-                    let ListNode { val, next } = *head.unwrap();
-                    let val_end = next.unwrap().next.unwrap().val;
-                    val == val_end // Doesn't matter what the middle is.
-                }
-                _ => {
-                    let mut head_node = head.unwrap();
-                    let middle = {
-                        let mut to_middle = length / 2 - 1;
-                        let mut next = &mut head_node;
-                        while to_middle > 0 {
-                            next = next.next.as_mut().unwrap();
-                            to_middle -= 1;
-                        }
-                        next
-                    };
-
-                    // Reverse the second half of the list
-                    let mut prev = middle.next.take().unwrap();
-                    let mut next = prev.next.take();
-                    while let Some(mut boxed) = next {
-                        next = boxed.next.take();
-                        boxed.next = Some(prev);
-                        prev = boxed;
-                    }
-                    // Now prev is the head of the reversed second half
-                    // Compare the two halves
-                    let mut next_front = Some(&head_node);
-                    let mut next_back = Some(&prev);
-                    while let (Some(front), Some(back)) = (next_front, next_back) {
-                        if front.val != back.val {
-                            return false;
-                        }
-                        next_front = front.next.as_ref();
-                        next_back = back.next.as_ref();
-                    }
-
-                    true
+            // Meet in the middle
+            for i in 0..values.len() / 2 {
+                if values[i] != values[values.len() - 1 - i] {
+                    return false;
                 }
             }
+            true
         }
     }
 }
