@@ -1,0 +1,11 @@
+[package]
+name = "reorder_list"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+doctest = false
+path="reorder_list.rs"
+
+[dependencies]
+utils = { path = "../utils"}
