@@ -2,27 +2,50 @@
 
 pub struct Solution;
 
+// Initial sol'n
+// impl Solution {
+//     pub fn num_subarray_product_less_than_k(nums: Vec<i32>, k: i32) -> i32 {
+//         match k {
+//             i32::MIN..=1 => 0,
+//             2..=1_000_000 => {
+//                 let mut count = 0i32;
+//                 let mut product = 1;
+//                 let mut left = 0;
+//                 let mut right = 0;
+//                 while right < nums.len() {
+//                     product *= nums[right];
+//                     while product >= k {
+//                         product /= nums[left];
+//                         left += 1;
+//                     }
+//                     right += 1;
+//                     count += (right - left) as i32;
+//                 }
+//                 count
+//             }
+//             _ => unreachable!("k is out of range"),
+//         }
+//     }
+// }
+
+// Improve loop to avoid bounds checks
 impl Solution {
     pub fn num_subarray_product_less_than_k(nums: Vec<i32>, k: i32) -> i32 {
-        match k {
-            i32::MIN..=1 => 0,
-            2..=1_000_000 => {
-                let mut count = 0i32;
-                let mut product = 1;
-                let mut left = 0;
-                let mut right = 0;
-                while right < nums.len() {
-                    product *= nums[right];
-                    while product >= k {
-                        product /= nums[left];
-                        left += 1;
-                    }
-                    right += 1;
-                    count += (right - left) as i32;
+        if k <= 1 {
+            0
+        } else {
+            let mut count = 0;
+            let mut product = 1;
+            let mut left = 0;
+            for right in 0..nums.len() {
+                product *= nums[right];
+                while product >= k {
+                    product /= nums[left];
+                    left += 1;
                 }
-                count
+                count += right - left + 1;
             }
-            _ => unreachable!("k is out of range"),
+            count as i32
         }
     }
 }
