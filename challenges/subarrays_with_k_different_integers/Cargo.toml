@@ -1,0 +1,10 @@
+[package]
+name = "subarrays_with_k_different_integers"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+doctest = false
+path="subarrays_with_k_different_integers.rs"
+
+[dependencies]
