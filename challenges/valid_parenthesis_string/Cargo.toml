@@ -1,0 +1,10 @@
+[package]
+name = "valid_parenthesis_string"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+doctest = false
+path="valid_parenthesis_string.rs"
+
+[dependencies]
