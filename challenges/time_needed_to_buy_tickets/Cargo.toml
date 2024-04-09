@@ -1,0 +1,10 @@
+[package]
+name = "time_needed_to_buy_tickets"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+doctest = false
+path="time_needed_to_buy_tickets.rs"
+
+[dependencies]
