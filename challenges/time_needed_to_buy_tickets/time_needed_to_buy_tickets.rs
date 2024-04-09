@@ -2,20 +2,32 @@
 
 pub struct Solution;
 
+// impl Solution {
+//     pub fn time_required_to_buy(tickets: Vec<i32>, k: i32) -> i32 {
+//         assert!(tickets.len() <= 100);
+//         assert!(k >= 0);
+//         assert!(k < tickets.len() as i32);
+//         let k = k as u8;
+//         let k_wants = tickets[k as usize];
+//         let mut time = k_wants;
+//         for i in 0..k {
+//             time += std::cmp::min(tickets[i as usize], k_wants);
+//         }
+//         let k_wants_sub_1 = k_wants - 1;
+//         for i in k + 1..tickets.len() as u8 {
+//             time += std::cmp::min(tickets[i as usize], k_wants_sub_1);
+//         }
+//         time
+//     }
+// }
+
 impl Solution {
     pub fn time_required_to_buy(tickets: Vec<i32>, k: i32) -> i32 {
-        assert!(tickets.len() <= 100);
-        assert!(k >= 0);
-        assert!(k < tickets.len() as i32);
+        let mut time = 0;
         let k = k as u8;
-        let k_wants = tickets[k as usize];
-        let mut time = k_wants;
-        for i in 0..k {
-            time += std::cmp::min(tickets[i as usize], k_wants);
-        }
-        let k_wants_sub_1 = k_wants - 1;
-        for i in k + 1..tickets.len() as u8 {
-            time += std::cmp::min(tickets[i as usize], k_wants_sub_1);
+        let wants = tickets[k as usize];
+        for i in 0..tickets.len() as u8 {
+            time += std::cmp::min(wants - if i > k { 1 } else { 0 }, tickets[i as usize])
         }
         time
     }
