@@ -1,0 +1,10 @@
+[package]
+name = "largest_rectangle_in_histogram"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+doctest = false
+path="largest_rectangle_in_histogram.rs"
+
+[dependencies]
