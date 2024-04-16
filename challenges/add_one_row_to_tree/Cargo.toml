@@ -1,0 +1,11 @@
+[package]
+name = "add_one_row_to_tree"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+doctest = false
+path="add_one_row_to_tree.rs"
+
+[dependencies]
+utils = { path = "../utils" }
