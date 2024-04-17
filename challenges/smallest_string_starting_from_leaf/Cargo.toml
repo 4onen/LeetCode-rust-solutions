@@ -1,0 +1,11 @@
+[package]
+name = "smallest_string_starting_from_leaf"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+doctest = false
+path="smallest_string_starting_from_leaf.rs"
+
+[dependencies]
+utils = { path = "../utils" }
