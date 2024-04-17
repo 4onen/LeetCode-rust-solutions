@@ -1,0 +1,10 @@
+[package]
+name = "sliding_window_median"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+doctest = false
+path="sliding_window_median.rs"
+
+[dependencies]
