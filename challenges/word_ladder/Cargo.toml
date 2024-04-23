@@ -1,0 +1,10 @@
+[package]
+name = "word_ladder"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+doctest = false
+path="word_ladder.rs"
+
+[dependencies]
