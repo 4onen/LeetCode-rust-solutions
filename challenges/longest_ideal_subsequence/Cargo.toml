@@ -1,0 +1,10 @@
+[package]
+name = "longest_ideal_subsequence"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+doctest = false
+path="longest_ideal_subsequence.rs"
+
+[dependencies]
