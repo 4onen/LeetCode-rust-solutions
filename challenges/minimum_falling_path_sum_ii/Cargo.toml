@@ -1,0 +1,10 @@
+[package]
+name = "minimum_falling_path_sum_ii"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+doctest = false
+path="minimum_falling_path_sum_ii.rs"
+
+[dependencies]
