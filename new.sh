@@ -1,7 +1,13 @@
+#!/bin/bash
+
+set -e
+
 if [ -z "$1" ]; then
     echo "Usage: $0 <url or project_name>"
     exit 1
 fi
+
+git pull || true
 
 # If the project name is a url, extract the project name
 if [ "$1" != "${1##http}" ]; then
