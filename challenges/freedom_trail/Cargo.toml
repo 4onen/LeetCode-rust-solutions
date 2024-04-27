@@ -1,0 +1,10 @@
+[package]
+name = "freedom_trail"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+doctest = false
+path="freedom_trail.rs"
+
+[dependencies]
