@@ -1,0 +1,10 @@
+[package]
+name = "sum_of_distances_in_tree"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+doctest = false
+path="sum_of_distances_in_tree.rs"
+
+[dependencies]
