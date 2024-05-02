@@ -1,0 +1,10 @@
+[package]
+name = "largest_positive_integer_that_exists_with_its_negative"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+doctest = false
+path="largest_positive_integer_that_exists_with_its_negative.rs"
+
+[dependencies]
