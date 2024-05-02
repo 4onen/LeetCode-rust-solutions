@@ -37,35 +37,96 @@ pub struct Solution;
 // }
 
 // Bitset sol'n
-impl Solution {
-    pub fn find_max_k(nums: Vec<i32>) -> i32 {
-        let mut found = [0u8; 1001];
-        let mut maxk = -1;
-        for num in nums {
-            if num == 0 {
-                unreachable!();
-            } else if num < 0 {
-                // Rust has base two numbers on x86(_64)
-                // So given a negative number,
-                // the following is equivalent to
-                let num = num.abs();
-                found[num as usize] |= 1;
-                if found[num as usize] == 3 {
-                    if num > maxk {
-                        maxk = num;
-                    }
-                }
-            } else {
-                // num > 0
-                found[num as usize] |= 2;
-                if found[num as usize] == 3 {
-                    if num > maxk {
-                        maxk = num;
-                    }
-                }
+// impl Solution {
+//     pub fn find_max_k(nums: Vec<i32>) -> i32 {
+//         let mut found = [0u8; 1001];
+//         let mut maxk = -1;
+//         for num in nums {
+//             if num == 0 {
+//                 unreachable!();
+//             } else if num < 0 {
+//                 let num = -num;
+//                 found[num as usize] |= 1;
+//                 if found[num as usize] == 3 {
+//                     if num > maxk {
+//                         maxk = num;
+//                     }
+//                 }
+//             } else {
+//                 // num > 0
+//                 found[num as usize] |= 2;
+//                 if found[num as usize] == 3 {
+//                     if num > maxk {
+//                         maxk = num;
+//                     }
+//                 }
+//             }
+//         }
+//         maxk
+//     }
+// }
+
+// Const-ify sol'n
+// pub const fn find_max_k_const(nums: &[i32]) -> i32 {
+//     let n = nums.len();
+//     assert!(n >= 1);
+//     assert!(n <= 1000);
+//     let mut found = [0u8; 1001];
+//     let mut idx = 0;
+//     let mut maxk = -1;
+//     while idx < n {
+//         let num = nums[idx];
+//         if num < 0 {
+//             let num = -num;
+//             found[num as usize] |= 1;
+//             if found[num as usize] == 3 {
+//                 if num > maxk {
+//                     maxk = num;
+//                 }
+//             }
+//         } else {
+//             // num > 0
+//             found[num as usize] |= 2;
+//             if found[num as usize] == 3 {
+//                 if num > maxk {
+//                     maxk = num;
+//                 }
+//             }
+//         }
+//         idx += 1;
+//     }
+//     maxk
+// }
+// impl Solution {
+//     pub fn find_max_k(nums: Vec<i32>) -> i32 {
+//         find_max_k_const(&nums)
+//     }
+// }
+
+// Try to merge branches
+pub const fn find_max_k_const(nums: &[i32]) -> i32 {
+    let n = nums.len();
+    assert!(n >= 1);
+    assert!(n <= 1000);
+    let mut found = [0u8; 1001];
+    let mut idx = 0;
+    let mut maxk = -1;
+    while idx < n {
+        let num = nums[idx];
+        let absnum = if num < 0 { -num } else { num };
+        found[absnum as usize] |= if num < 0 { 1 } else { 2 };
+        if found[absnum as usize] == 3 {
+            if absnum > maxk {
+                maxk = absnum;
             }
         }
-        maxk
+        idx += 1;
+    }
+    maxk
+}
+impl Solution {
+    pub fn find_max_k(nums: Vec<i32>) -> i32 {
+        find_max_k_const(&nums)
     }
 }
 
