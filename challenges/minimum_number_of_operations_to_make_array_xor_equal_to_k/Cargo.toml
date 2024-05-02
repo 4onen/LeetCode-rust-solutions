@@ -1,0 +1,10 @@
+[package]
+name = "minimum_number_of_operations_to_make_array_xor_equal_to_k"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+doctest = false
+path="minimum_number_of_operations_to_make_array_xor_equal_to_k.rs"
+
+[dependencies]
