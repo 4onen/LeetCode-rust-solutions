@@ -1,0 +1,10 @@
+[package]
+name = "boats_to_save_people"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+doctest = false
+path="boats_to_save_people.rs"
+
+[dependencies]
