@@ -1,0 +1,10 @@
+[package]
+name = "relative_ranks"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+doctest = false
+path="relative_ranks.rs"
+
+[dependencies]
