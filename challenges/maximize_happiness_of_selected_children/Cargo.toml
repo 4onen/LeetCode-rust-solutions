@@ -1,0 +1,10 @@
+[package]
+name = "maximize_happiness_of_selected_children"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+doctest = false
+path="maximize_happiness_of_selected_children.rs"
+
+[dependencies]
