@@ -1,0 +1,10 @@
+[package]
+name = "minimum_cost_to_hire_k_workers"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+doctest = false
+path="minimum_cost_to_hire_k_workers.rs"
+
+[dependencies]
