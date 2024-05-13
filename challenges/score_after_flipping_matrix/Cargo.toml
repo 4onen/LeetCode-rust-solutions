@@ -1,0 +1,10 @@
+[package]
+name = "score_after_flipping_matrix"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+doctest = false
+path="score_after_flipping_matrix.rs"
+
+[dependencies]
