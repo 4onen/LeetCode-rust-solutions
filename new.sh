@@ -23,8 +23,20 @@ fi
 # Remove query parameters from the url
 url=${url%%\?*}
 
+open_project () {
+    if [ "$TERM_PROGRAM" = "vscode" ]; then
+        # If we're in vscode, open the file there
+        code "challenges/${project_name}/${project_name}.rs"
+    else
+        # Otherwise, open the folder
+        xdg-open "challenges/${project_name}/" &
+    fi
+
+}
+
 if [ -e "challenges/${project_name}" ]; then
     echo "Project ${project_name} already exists"
+    open_project
     exit 1
 fi
 
@@ -62,4 +74,5 @@ path="${project_name}.rs"
 
 [dependencies]
 EOF
-code "challenges/${project_name}/${project_name}.rs"
+
+open_project
