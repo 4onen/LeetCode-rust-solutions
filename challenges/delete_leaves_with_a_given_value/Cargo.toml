@@ -1,0 +1,11 @@
+[package]
+name = "delete_leaves_with_a_given_value"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+doctest = false
+path="delete_leaves_with_a_given_value.rs"
+
+[dependencies]
+utils = { path = "../utils" }
