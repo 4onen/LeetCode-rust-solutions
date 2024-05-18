@@ -1,0 +1,11 @@
+[package]
+name = "distribute_coins_in_binary_tree"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+doctest = false
+path="distribute_coins_in_binary_tree.rs"
+
+[dependencies]
+utils = { path = "../utils" }
