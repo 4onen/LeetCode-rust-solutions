@@ -1,0 +1,10 @@
+[package]
+name = "the_number_of_beautiful_subsets"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+doctest = false
+path="the_number_of_beautiful_subsets.rs"
+
+[dependencies]
