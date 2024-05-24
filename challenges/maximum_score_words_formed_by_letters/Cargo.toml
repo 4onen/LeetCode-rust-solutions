@@ -1,0 +1,10 @@
+[package]
+name = "maximum_score_words_formed_by_letters"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+doctest = false
+path="maximum_score_words_formed_by_letters.rs"
+
+[dependencies]
