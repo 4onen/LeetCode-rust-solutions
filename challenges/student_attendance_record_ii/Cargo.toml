@@ -1,0 +1,10 @@
+[package]
+name = "student_attendance_record_ii"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+doctest = false
+path="student_attendance_record_ii.rs"
+
+[dependencies]
