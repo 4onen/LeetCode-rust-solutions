@@ -1,0 +1,10 @@
+[package]
+name = "special_array_with_x_elements_greater_than_or_equal_x"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+doctest = false
+path="special_array_with_x_elements_greater_than_or_equal_x.rs"
+
+[dependencies]
