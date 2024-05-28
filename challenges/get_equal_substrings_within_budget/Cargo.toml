@@ -1,0 +1,10 @@
+[package]
+name = "get_equal_substrings_within_budget"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+doctest = false
+path="get_equal_substrings_within_budget.rs"
+
+[dependencies]
