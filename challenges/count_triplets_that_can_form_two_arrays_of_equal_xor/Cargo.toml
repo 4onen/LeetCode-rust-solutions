@@ -1,0 +1,10 @@
+[package]
+name = "count_triplets_that_can_form_two_arrays_of_equal_xor"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+doctest = false
+path="count_triplets_that_can_form_two_arrays_of_equal_xor.rs"
+
+[dependencies]
