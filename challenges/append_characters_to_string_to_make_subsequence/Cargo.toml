@@ -1,0 +1,10 @@
+[package]
+name = "append_characters_to_string_to_make_subsequence"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+doctest = false
+path="append_characters_to_string_to_make_subsequence.rs"
+
+[dependencies]
