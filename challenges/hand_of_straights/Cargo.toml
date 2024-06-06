@@ -1,0 +1,10 @@
+[package]
+name = "hand_of_straights"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+doctest = false
+path="hand_of_straights.rs"
+
+[dependencies]
