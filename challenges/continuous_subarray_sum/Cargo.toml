@@ -1,0 +1,10 @@
+[package]
+name = "continuous_subarray_sum"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+doctest = false
+path="continuous_subarray_sum.rs"
+
+[dependencies]
