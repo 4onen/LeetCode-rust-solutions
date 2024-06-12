@@ -1,0 +1,10 @@
+[package]
+name = "sort_colors"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+doctest = false
+path="sort_colors.rs"
+
+[dependencies]
