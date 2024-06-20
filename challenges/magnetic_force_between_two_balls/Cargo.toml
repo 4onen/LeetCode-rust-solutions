@@ -1,0 +1,10 @@
+[package]
+name = "magnetic_force_between_two_balls"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+doctest = false
+path="magnetic_force_between_two_balls.rs"
+
+[dependencies]
