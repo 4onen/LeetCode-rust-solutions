@@ -1,0 +1,10 @@
+[package]
+name = "longest_continuous_subarray_with_absolute_diff_less_than_or_equal_to_limit"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+doctest = false
+path="longest_continuous_subarray_with_absolute_diff_less_than_or_equal_to_limit.rs"
+
+[dependencies]
