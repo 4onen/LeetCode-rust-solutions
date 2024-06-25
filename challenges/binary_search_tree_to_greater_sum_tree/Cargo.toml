@@ -1,0 +1,12 @@
+[package]
+name = "binary_search_tree_to_greater_sum_tree"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+doctest = false
+path="binary_search_tree_to_greater_sum_tree.rs"
+
+[dependencies]
+utils = { path = "../utils" }
+
