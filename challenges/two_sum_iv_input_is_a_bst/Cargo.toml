@@ -1,0 +1,11 @@
+[package]
+name = "two_sum_iv_input_is_a_bst"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+doctest = false
+path="two_sum_iv_input_is_a_bst.rs"
+
+[dependencies]
+utils = { path = "../utils" }
