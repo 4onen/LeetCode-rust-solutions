@@ -1,0 +1,11 @@
+[package]
+name = "balance_a_binary_search_tree"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+doctest = false
+path="balance_a_binary_search_tree.rs"
+
+[dependencies]
+utils = { path = "../utils" }
