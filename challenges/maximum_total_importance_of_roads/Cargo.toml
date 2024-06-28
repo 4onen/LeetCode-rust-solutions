@@ -1,0 +1,10 @@
+[package]
+name = "maximum_total_importance_of_roads"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+doctest = false
+path="maximum_total_importance_of_roads.rs"
+
+[dependencies]
