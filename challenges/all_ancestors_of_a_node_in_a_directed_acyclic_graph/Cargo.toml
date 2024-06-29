@@ -1,0 +1,10 @@
+[package]
+name = "all_ancestors_of_a_node_in_a_directed_acyclic_graph"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+doctest = false
+path="all_ancestors_of_a_node_in_a_directed_acyclic_graph.rs"
+
+[dependencies]
