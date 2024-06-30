@@ -1,0 +1,10 @@
+[package]
+name = "remove_max_number_of_edges_to_keep_graph_fully_traversable"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+doctest = false
+path="remove_max_number_of_edges_to_keep_graph_fully_traversable.rs"
+
+[dependencies]
