@@ -26,23 +26,46 @@ pub struct Solution;
 // }
 
 // Counting sol'n
+// impl Solution {
+//     pub fn intersect(nums1: Vec<i32>, nums2: Vec<i32>) -> Vec<i32> {
+//         use std::collections::HashMap;
+//         let mut map = HashMap::new();
+//         for num in nums1 {
+//             *map.entry(num).or_insert(0) += 1;
+//         }
+//         let mut result = Vec::new();
+//         for num in nums2 {
+//             if let Some(count) = map.get_mut(&num) {
+//                 if *count > 0 {
+//                     result.push(num);
+//                     *count -= 1;
+//                 }
+//             }
+//         }
+//         result
+//     }
+// }
+
+// Linear counting sol'n
 impl Solution {
-    pub fn intersect(nums1: Vec<i32>, nums2: Vec<i32>) -> Vec<i32> {
-        use std::collections::HashMap;
-        let mut map = HashMap::new();
+    pub fn intersect(nums1: Vec<i32>, mut nums2: Vec<i32>) -> Vec<i32> {
+        let mut map = [0u16;1001];
         for num in nums1 {
-            *map.entry(num).or_insert(0) += 1;
+            map[num as usize] += 1;
         }
-        let mut result = Vec::new();
-        for num in nums2 {
-            if let Some(count) = map.get_mut(&num) {
+        nums2.retain(|&num| {
+            if let Some(count) = map.get_mut(num as usize) {
                 if *count > 0 {
-                    result.push(num);
                     *count -= 1;
+                    true
+                } else {
+                    false
                 }
+            } else {
+                false
             }
-        }
-        result
+        });
+        nums2
     }
 }
 
