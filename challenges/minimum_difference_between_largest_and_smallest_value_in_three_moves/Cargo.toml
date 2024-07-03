@@ -1,0 +1,10 @@
+[package]
+name = "minimum_difference_between_largest_and_smallest_value_in_three_moves"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+doctest = false
+path="minimum_difference_between_largest_and_smallest_value_in_three_moves.rs"
+
+[dependencies]
