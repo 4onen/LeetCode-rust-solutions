@@ -1,0 +1,11 @@
+[package]
+name = "merge_nodes_in_between_zeros"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+doctest = false
+path="merge_nodes_in_between_zeros.rs"
+
+[dependencies]
+utils = { path = "../utils" }
