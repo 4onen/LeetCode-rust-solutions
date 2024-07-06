@@ -1,0 +1,10 @@
+[package]
+name = "pass_the_pillow"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+doctest = false
+path="pass_the_pillow.rs"
+
+[dependencies]
