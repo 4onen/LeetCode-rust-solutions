@@ -1,0 +1,10 @@
+[package]
+name = "average_waiting_time"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+doctest = false
+path="average_waiting_time.rs"
+
+[dependencies]
