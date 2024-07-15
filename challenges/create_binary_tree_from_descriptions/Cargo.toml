@@ -1,0 +1,11 @@
+[package]
+name = "create_binary_tree_from_descriptions"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+doctest = false
+path="create_binary_tree_from_descriptions.rs"
+
+[dependencies]
+utils = { path = "../utils" }
