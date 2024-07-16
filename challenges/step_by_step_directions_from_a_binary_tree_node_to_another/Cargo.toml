@@ -1,0 +1,11 @@
+[package]
+name = "step_by_step_directions_from_a_binary_tree_node_to_another"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+doctest = false
+path="step_by_step_directions_from_a_binary_tree_node_to_another.rs"
+
+[dependencies]
+utils = { path = "../utils" }
