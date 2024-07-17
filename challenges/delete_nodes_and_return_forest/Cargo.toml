@@ -1,0 +1,11 @@
+[package]
+name = "delete_nodes_and_return_forest"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+doctest = false
+path="delete_nodes_and_return_forest.rs"
+
+[dependencies]
+utils = { path = "../utils" }
