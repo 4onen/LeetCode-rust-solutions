@@ -1,0 +1,11 @@
+[package]
+name = "number_of_good_leaf_nodes_pairs"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+doctest = false
+path="number_of_good_leaf_nodes_pairs.rs"
+
+[dependencies]
+utils = { path = "../utils" }
