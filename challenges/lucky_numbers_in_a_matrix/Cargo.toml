@@ -1,0 +1,10 @@
+[package]
+name = "lucky_numbers_in_a_matrix"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+doctest = false
+path="lucky_numbers_in_a_matrix.rs"
+
+[dependencies]
