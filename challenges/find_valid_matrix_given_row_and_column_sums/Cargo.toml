@@ -1,0 +1,10 @@
+[package]
+name = "find_valid_matrix_given_row_and_column_sums"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+doctest = false
+path="find_valid_matrix_given_row_and_column_sums.rs"
+
+[dependencies]
