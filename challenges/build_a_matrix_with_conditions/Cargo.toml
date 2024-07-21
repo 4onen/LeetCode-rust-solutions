@@ -1,0 +1,10 @@
+[package]
+name = "build_a_matrix_with_conditions"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+doctest = false
+path="build_a_matrix_with_conditions.rs"
+
+[dependencies]
