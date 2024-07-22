@@ -1,0 +1,10 @@
+[package]
+name = "sort_the_people"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+doctest = false
+path="sort_the_people.rs"
+
+[dependencies]
