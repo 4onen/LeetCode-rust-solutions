@@ -1,0 +1,10 @@
+[package]
+name = "sort_an_array"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+doctest = false
+path="sort_an_array.rs"
+
+[dependencies]
