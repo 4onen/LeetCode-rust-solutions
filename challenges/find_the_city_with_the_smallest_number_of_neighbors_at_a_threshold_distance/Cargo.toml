@@ -1,0 +1,10 @@
+[package]
+name = "find_the_city_with_the_smallest_number_of_neighbors_at_a_threshold_distance"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+doctest = false
+path="find_the_city_with_the_smallest_number_of_neighbors_at_a_threshold_distance.rs"
+
+[dependencies]
