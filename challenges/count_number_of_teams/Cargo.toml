@@ -1,0 +1,10 @@
+[package]
+name = "count_number_of_teams"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+doctest = false
+path="count_number_of_teams.rs"
+
+[dependencies]
