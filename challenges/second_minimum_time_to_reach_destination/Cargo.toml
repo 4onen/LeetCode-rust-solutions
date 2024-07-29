@@ -1,0 +1,10 @@
+[package]
+name = "second_minimum_time_to_reach_destination"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+doctest = false
+path="second_minimum_time_to_reach_destination.rs"
+
+[dependencies]
