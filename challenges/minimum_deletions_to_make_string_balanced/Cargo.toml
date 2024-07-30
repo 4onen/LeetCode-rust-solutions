@@ -1,0 +1,10 @@
+[package]
+name = "minimum_deletions_to_make_string_balanced"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+doctest = false
+path="minimum_deletions_to_make_string_balanced.rs"
+
+[dependencies]
