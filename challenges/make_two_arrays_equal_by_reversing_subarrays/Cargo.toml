@@ -1,0 +1,10 @@
+[package]
+name = "make_two_arrays_equal_by_reversing_subarrays"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+doctest = false
+path="make_two_arrays_equal_by_reversing_subarrays.rs"
+
+[dependencies]
