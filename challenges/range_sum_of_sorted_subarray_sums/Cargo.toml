@@ -1,0 +1,10 @@
+[package]
+name = "range_sum_of_sorted_subarray_sums"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+doctest = false
+path="range_sum_of_sorted_subarray_sums.rs"
+
+[dependencies]
