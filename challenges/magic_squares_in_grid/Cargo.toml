@@ -1,0 +1,10 @@
+[package]
+name = "magic_squares_in_grid"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+doctest = false
+path="magic_squares_in_grid.rs"
+
+[dependencies]
