@@ -1,0 +1,10 @@
+[package]
+name = "kth_largest_element_in_a_stream"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+doctest = false
+path="kth_largest_element_in_a_stream.rs"
+
+[dependencies]
