@@ -1,0 +1,10 @@
+[package]
+name = "lemonade_change"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+doctest = false
+path="lemonade_change.rs"
+
+[dependencies]
