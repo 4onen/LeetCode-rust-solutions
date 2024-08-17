@@ -1,0 +1,10 @@
+[package]
+name = "coin_change_ii"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+doctest = false
+path="coin_change_ii.rs"
+
+[dependencies]
