@@ -1,0 +1,10 @@
+[package]
+name = "best_sightseeing_pair"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+doctest = false
+path="best_sightseeing_pair.rs"
+
+[dependencies]
