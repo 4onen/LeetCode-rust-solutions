@@ -1,0 +1,10 @@
+[package]
+name = "ugly_number_ii"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+doctest = false
+path="ugly_number_ii.rs"
+
+[dependencies]
