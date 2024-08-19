@@ -24,10 +24,11 @@ url=${url%%\?*}
 open_project () {
     if [ "$TERM_PROGRAM" = "vscode" ]; then
         # If we're in vscode, open the file there
-        (code "challenges/$1" "challenges/$1/$1.rs")
+        (code "challenges/$1" "challenges/$1/*.rs")
     else
         # Otherwise, open in $EDITOR
-        (cd "challenges/$1" && $EDITOR "$1.rs")
+        cd "challenges/$1"
+        $EDITOR -- *.rs
     fi
 }
 export -f open_project

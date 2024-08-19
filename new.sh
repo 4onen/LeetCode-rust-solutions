@@ -17,7 +17,7 @@ fi
 echo "Creating new project: ${project_name}"
 mkdir -p "challenges/${project_name}"
 # Create the file with the leetcode template
-cat > "challenges/${project_name}/${project_name}.rs" <<EOF
+cat > "challenges/${project_name}/solution.rs" <<EOF
 // $url
 
 pub struct Solution;
@@ -30,9 +30,14 @@ impl Solution {
 mod tests {
     use super::*;
 
+    fn test(_, expected: _) {
+        assert_eq!(Solution::_, expected);
+    }
+
     #[test]
     fn ex1() {
-        assert_eq!(Solution::_, _)
+        test(
+        )
     }
 }
 EOF
@@ -44,7 +49,7 @@ edition = "2021"
 
 [lib]
 doctest = false
-path="${project_name}.rs"
+path="solution.rs"
 
 [dependencies]
 EOF
