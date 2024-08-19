@@ -1,0 +1,10 @@
+[package]
+name = "two_keys_keyboard"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+doctest = false
+path="two_keys_keyboard.rs"
+
+[dependencies]
