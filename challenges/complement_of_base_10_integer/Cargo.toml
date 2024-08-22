@@ -1,0 +1,10 @@
+[package]
+name = "complement_of_base_10_integer"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+doctest = false
+path="complement_of_base_10_integer.rs"
+
+[dependencies]
