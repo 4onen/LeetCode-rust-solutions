@@ -1,0 +1,10 @@
+[package]
+name = "fraction_addition_and_subtraction"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+doctest = false
+path="fraction_addition_and_subtraction.rs"
+
+[dependencies]
