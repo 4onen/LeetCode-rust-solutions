@@ -1,0 +1,10 @@
+[package]
+name = "path_with_maximum_probability"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+doctest = false
+path="path_with_maximum_probability.rs"
+
+[dependencies]
