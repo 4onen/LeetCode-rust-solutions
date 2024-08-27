@@ -17,7 +17,7 @@ fi
 echo "Creating new project: ${project_name}"
 mkdir -p "challenges/${project_name}"
 # Create the file with the leetcode template
-cat > "challenges/${project_name}/solution.rs" <<EOF
+cat > "challenges/${project_name}/${project_name}.rs" <<EOF
 // $url
 
 pub struct Solution;
@@ -49,7 +49,7 @@ edition = "2021"
 
 [lib]
 doctest = false
-path="solution.rs"
+path="${project_name}.rs"
 
 [dependencies]
 EOF
