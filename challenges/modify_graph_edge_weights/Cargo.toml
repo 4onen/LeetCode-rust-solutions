@@ -1,0 +1,10 @@
+[package]
+name = "modify_graph_edge_weights"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+doctest = false
+path="modify_graph_edge_weights.rs"
+
+[dependencies]
