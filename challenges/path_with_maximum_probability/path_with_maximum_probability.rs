@@ -2,6 +2,7 @@
 
 pub struct Solution;
 
+// Initial sol'n
 impl Solution {
     pub fn max_probability(
         n: i32,
@@ -46,6 +47,52 @@ impl Solution {
         probs[end_node as usize]
     }
 }
+
+// New sol'n for 2024-08-30 LeetCode Daily (Slower)
+// impl Solution {
+//     pub fn max_probability(
+//         n: i32,
+//         edges: Vec<Vec<i32>>,
+//         succ_prob: Vec<f64>,
+//         start_node: i32,
+//         end_node: i32,
+//     ) -> f64 {
+//         const EPS: f64 = 1e-5;
+//         assert!(n >= 2);
+//         assert!(n <= 10_000);
+//         assert!(start_node < n);
+//         assert!(end_node < n);
+//         let n = n as u16;
+//         let start_node = start_node as u16;
+//         let end_node = end_node as u16;
+//         let mut targets = vec![vec![]; n as usize];
+//         for (edge, succ) in std::iter::zip(edges.into_iter(), succ_prob.into_iter()) {
+//             if succ <= EPS {
+//                 continue;
+//             }
+//             targets[edge[0] as usize].push((edge[1] as u16, succ));
+//             targets[edge[1] as usize].push((edge[0] as u16, succ));
+//         }
+//         let mut probs = vec![0.0f64; n as usize];
+//         let mut queue = std::collections::VecDeque::new();
+//         queue.push_back((start_node as u16, 1.0f64));
+//         while let Some((node, new_prob)) = queue.pop_front() {
+//             let old_prob = probs[node as usize];
+//             if new_prob > old_prob {
+//                 probs[node as usize] = new_prob;
+//                 if node == end_node {
+//                     continue;
+//                 }
+//                 queue.extend(
+//                     targets[node as usize]
+//                         .iter()
+//                         .map(|&(tgt, succ)| (tgt, new_prob * succ)),
+//                 );
+//             };
+//         }
+//         probs[end_node as usize]
+//     }
+// }
 
 #[cfg(test)]
 mod tests {
