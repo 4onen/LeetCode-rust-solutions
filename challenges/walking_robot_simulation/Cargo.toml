@@ -1,0 +1,10 @@
+[package]
+name = "walking_robot_simulation"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+doctest = false
+path="walking_robot_simulation.rs"
+
+[dependencies]
