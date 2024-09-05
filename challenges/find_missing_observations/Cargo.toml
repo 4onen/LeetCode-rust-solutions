@@ -1,0 +1,10 @@
+[package]
+name = "find_missing_observations"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+doctest = false
+path="find_missing_observations.rs"
+
+[dependencies]
