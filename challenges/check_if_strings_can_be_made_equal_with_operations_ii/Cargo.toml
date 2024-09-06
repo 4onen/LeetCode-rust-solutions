@@ -1,0 +1,10 @@
+[package]
+name = "check_if_strings_can_be_made_equal_with_operations_ii"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+doctest = false
+path="check_if_strings_can_be_made_equal_with_operations_ii.rs"
+
+[dependencies]
