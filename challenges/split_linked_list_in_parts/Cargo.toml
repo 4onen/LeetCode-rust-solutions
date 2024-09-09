@@ -1,0 +1,11 @@
+[package]
+name = "split_linked_list_in_parts"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+doctest = false
+path="split_linked_list_in_parts.rs"
+
+[dependencies]
+utils = { path = "../utils" }
