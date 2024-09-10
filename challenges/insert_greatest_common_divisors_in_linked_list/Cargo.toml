@@ -1,0 +1,11 @@
+[package]
+name = "insert_greatest_common_divisors_in_linked_list"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+doctest = false
+path="insert_greatest_common_divisors_in_linked_list.rs"
+
+[dependencies]
+utils = { path = "../utils" }
