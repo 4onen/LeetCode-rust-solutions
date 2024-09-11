@@ -1,0 +1,10 @@
+[package]
+name = "minimum_bit_flips_to_convert_number"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+doctest = false
+path="minimum_bit_flips_to_convert_number.rs"
+
+[dependencies]
