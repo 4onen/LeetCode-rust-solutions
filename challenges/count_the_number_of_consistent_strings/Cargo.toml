@@ -1,0 +1,10 @@
+[package]
+name = "count_the_number_of_consistent_strings"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+doctest = false
+path="count_the_number_of_consistent_strings.rs"
+
+[dependencies]
