@@ -1,0 +1,10 @@
+[package]
+name = "xor_queries_of_a_subarray"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+doctest = false
+path="xor_queries_of_a_subarray.rs"
+
+[dependencies]
