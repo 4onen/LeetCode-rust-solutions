@@ -1,0 +1,10 @@
+[package]
+name = "longest_subarray_with_maximum_bitwise_and"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+doctest = false
+path="longest_subarray_with_maximum_bitwise_and.rs"
+
+[dependencies]
