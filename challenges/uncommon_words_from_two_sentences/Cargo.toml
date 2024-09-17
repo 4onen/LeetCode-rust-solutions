@@ -1,0 +1,10 @@
+[package]
+name = "uncommon_words_from_two_sentences"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+doctest = false
+path="uncommon_words_from_two_sentences.rs"
+
+[dependencies]
