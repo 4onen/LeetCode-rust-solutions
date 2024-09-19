@@ -1,0 +1,10 @@
+[package]
+name = "different_ways_to_add_parentheses"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+doctest = false
+path="different_ways_to_add_parentheses.rs"
+
+[dependencies]
