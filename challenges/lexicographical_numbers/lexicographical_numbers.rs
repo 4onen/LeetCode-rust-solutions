@@ -3,25 +3,25 @@
 pub struct Solution;
 
 // Initial sol'n (with unnecessary outermost loop removed)
-impl Solution {
-    pub fn lexical_order(n: i32) -> Vec<i32> {
-        fn dfs(n: i32, res: &mut Vec<i32>, cur: i32) {
-            res.push(cur);
-            for i in 0..10 {
-                if cur * 10 + i > n {
-                    break;
-                }
-                dfs(n, res, cur * 10 + i);
-            }
-        }
-        assert!(n >= 1);
-        let mut res = Vec::with_capacity(n as usize);
-        for i in 1..=9.min(n) {
-            dfs(n, &mut res, i);
-        }
-        res
-    }
-}
+// impl Solution {
+//     pub fn lexical_order(n: i32) -> Vec<i32> {
+//         fn dfs(n: i32, res: &mut Vec<i32>, cur: i32) {
+//             res.push(cur);
+//             for i in 0..10 {
+//                 if cur * 10 + i > n {
+//                     break;
+//                 }
+//                 dfs(n, res, cur * 10 + i);
+//             }
+//         }
+//         assert!(n >= 1);
+//         let mut res = Vec::with_capacity(n as usize);
+//         for i in 1..=9.min(n) {
+//             dfs(n, &mut res, i);
+//         }
+//         res
+//     }
+// }
 
 // Roll-my-own recursion sol'n (broken)
 // impl Solution {
@@ -67,6 +67,43 @@ impl Solution {
 //         res
 //     }
 // }
+
+// Iterative sol'n (based on best)
+impl Solution {
+    pub fn lexical_order(n: i32) -> Vec<i32> {
+        type NumType = i32;
+        assert!(n >= 1);
+        assert!(n <= 50000);
+        let n = n as NumType;
+        let mut res = Vec::with_capacity(n as usize);
+        let mut cur = 1 as NumType;
+        res.push(cur as i32);
+        loop {
+            let times_ten = cur.saturating_mul(10);
+            if times_ten <= n {
+                cur = times_ten;
+                res.push(cur as i32);
+                continue;
+            }
+            let plus_one = cur + 1;
+            if plus_one <= n && cur % 10 < 9 {
+                cur = plus_one;
+                res.push(cur as i32);
+                continue;
+            }
+            cur = cur / 10;
+            while cur % 10 == 9 {
+                cur = cur / 10;
+            }
+            if cur == 0 {
+                break;
+            }
+            cur += 1;
+            res.push(cur as i32);
+        }
+        res
+    }
+}
 
 #[cfg(test)]
 mod tests {
