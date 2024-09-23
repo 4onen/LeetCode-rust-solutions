@@ -21,10 +21,85 @@ pub struct Solution;
 // }
 
 // Initial sol'n w/ byte iter compare
+// impl Solution {
+//     pub fn min_extra_char(s: String, dictionary: Vec<String>) -> i32 {
+//         let s = s.as_bytes();
+//         let mut dp = vec![0; s.len() + 1];
+//         for i in 1..=s.len() {
+//             dp[i] = dp[i - 1] + 1;
+//             for word in &dictionary {
+//                 if i >= word.len() {
+//                     let mut j = 0;
+//                     while j < word.len()
+//                         && j < i
+//                         && s[i - j - 1] == word.as_bytes()[word.len() - j - 1]
+//                     {
+//                         j += 1;
+//                     }
+//                     if j == word.len() {
+//                         dp[i] = std::cmp::min(dp[i], dp[i - word.len()]);
+//                     }
+//                 }
+//             }
+//         }
+//         dp[s.len()] as i32
+//     }
+// }
+
+// Using "starts_with" for compare, flipping DP direction (somehow slower)
+// impl Solution {
+//     pub fn min_extra_char(s: String, dictionary: Vec<String>) -> i32 {
+//         let s = s.as_bytes();
+//         let mut dp = vec![0; s.len() + 1];
+//         for i in (0..s.len()).rev() {
+//             dp[i] = dp[i + 1] + 1;
+//             for word in &dictionary {
+//                 if s[i..].starts_with(word.as_bytes()) {
+//                     dp[i] = std::cmp::min(dp[i], dp[i + word.len()]);
+//                 }
+//             }
+//         }
+//         dp[0] as i32
+//     }
+// }
+
+// Previous sol'n but without byte ranges (strcmp instead)
+// impl Solution {
+//     pub fn min_extra_char(s: String, dictionary: Vec<String>) -> i32 {
+//         let mut dp = vec![0; s.len() + 1];
+//         for i in (0..s.len()).rev() {
+//             dp[i] = dp[i + 1] + 1;
+//             for word in &dictionary {
+//                 if s[i..].starts_with(word.as_str()) {
+//                     dp[i] = std::cmp::min(dp[i], dp[i + word.len()]);
+//                 }
+//             }
+//         }
+//         dp[0] as i32
+//     }
+// }
+
+// Previous sol'n but with stack allocated DP array (even slower?!)
+// impl Solution {
+//     pub fn min_extra_char(s: String, dictionary: Vec<String>) -> i32 {
+//         let mut dp = [0u8; 51];
+//         for i in (0..s.len()).rev() {
+//             dp[i] = dp[i + 1] + 1;
+//             for word in &dictionary {
+//                 if s[i..].starts_with(word.as_str()) {
+//                     dp[i] = std::cmp::min(dp[i], dp[i + word.len()]);
+//                 }
+//             }
+//         }
+//         dp[0] as i32
+//     }
+// }
+
+// Byte iter compare sol'n with stack-allocated DP array
 impl Solution {
     pub fn min_extra_char(s: String, dictionary: Vec<String>) -> i32 {
         let s = s.as_bytes();
-        let mut dp = vec![0; s.len() + 1];
+        let mut dp = [0u8; 51];
         for i in 1..=s.len() {
             dp[i] = dp[i - 1] + 1;
             for word in &dictionary {
