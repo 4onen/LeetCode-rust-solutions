@@ -1,0 +1,10 @@
+[package]
+name = "extra_characters_in_a_string"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+doctest = false
+path="extra_characters_in_a_string.rs"
+
+[dependencies]
