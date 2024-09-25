@@ -1,0 +1,10 @@
+[package]
+name = "sum_of_prefix_scores_of_strings"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+doctest = false
+path="sum_of_prefix_scores_of_strings.rs"
+
+[dependencies]
