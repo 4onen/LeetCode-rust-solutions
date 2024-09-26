@@ -1,0 +1,10 @@
+[package]
+name = "my_calendar_i"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+doctest = false
+path="my_calendar_i.rs"
+
+[dependencies]
