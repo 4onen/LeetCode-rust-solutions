@@ -1,0 +1,10 @@
+[package]
+name = "all_oone_data_structure"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+doctest = false
+path="all_oone_data_structure.rs"
+
+[dependencies]
