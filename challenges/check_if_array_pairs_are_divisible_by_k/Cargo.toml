@@ -1,0 +1,10 @@
+[package]
+name = "check_if_array_pairs_are_divisible_by_k"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+doctest = false
+path="check_if_array_pairs_are_divisible_by_k.rs"
+
+[dependencies]
