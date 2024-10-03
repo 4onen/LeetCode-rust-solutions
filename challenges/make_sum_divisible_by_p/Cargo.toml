@@ -1,0 +1,10 @@
+[package]
+name = "make_sum_divisible_by_p"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+doctest = false
+path="make_sum_divisible_by_p.rs"
+
+[dependencies]
