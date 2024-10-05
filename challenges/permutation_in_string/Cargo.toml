@@ -1,0 +1,10 @@
+[package]
+name = "permutation_in_string"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+doctest = false
+path="permutation_in_string.rs"
+
+[dependencies]
