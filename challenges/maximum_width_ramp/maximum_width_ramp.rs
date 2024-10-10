@@ -2,23 +2,57 @@
 
 pub struct Solution;
 
+// Initial sol'n
+// impl Solution {
+//     pub fn max_width_ramp(nums: Vec<i32>) -> i32 {
+//         assert!(nums.len() >= 2);
+//         assert!(nums.len() <= 50000);
+//         let mut stack = vec![];
+//         for (i, &num) in nums.iter().enumerate() {
+//             if stack.is_empty() || nums[*stack.last().unwrap() as usize] > num {
+//                 stack.push(i as u16);
+//             }
+//         }
+//         let mut max = 0;
+//         for (j, &num) in nums.iter().enumerate().rev() {
+//             while !stack.is_empty() && nums[*stack.last().unwrap() as usize] <= num {
+//                 max = std::cmp::max(max, j as u16 - stack.pop().unwrap());
+//             }
+//         }
+//         max as i32
+//     }
+// }
+
+// Optimized sol'n
 impl Solution {
     pub fn max_width_ramp(nums: Vec<i32>) -> i32 {
-        assert!(nums.len() >= 2);
-        assert!(nums.len() <= 50000);
-        let mut stack = vec![];
-        for (i, &num) in nums.iter().enumerate() {
-            if stack.is_empty() || nums[*stack.last().unwrap() as usize] > num {
-                stack.push(i as u16);
+        let sz = nums.len();
+        assert!(sz >= 2);
+        assert!(sz <= 50000);
+        let mut min_list = vec![0; sz];
+        min_list[0] = nums[0];
+        for i in 1..sz {
+            min_list[i] = std::cmp::min(min_list[i - 1], nums[i]);
+        }
+        let mut max_list = nums;
+        for i in (0..sz - 1).rev() {
+            max_list[i] = std::cmp::max(max_list[i + 1], max_list[i]);
+        }
+        let mut i = 0;
+        let mut j = 0;
+        let mut res = 0;
+        while i < sz && j < sz {
+            if min_list[i] <= max_list[j] {
+                let new_res = (j - i) as i32;
+                if new_res >= res {
+                    res = new_res;
+                }
+                j += 1;
+            } else {
+                i += 1;
             }
         }
-        let mut max = 0;
-        for (j, &num) in nums.iter().enumerate().rev() {
-            while !stack.is_empty() && nums[*stack.last().unwrap() as usize] <= num {
-                max = std::cmp::max(max, j as u16 - stack.pop().unwrap());
-            }
-        }
-        max as i32
+        res
     }
 }
 
