@@ -1,0 +1,10 @@
+[package]
+name = "the_number_of_the_smallest_unoccupied_chair"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+doctest = false
+path="the_number_of_the_smallest_unoccupied_chair.rs"
+
+[dependencies]
