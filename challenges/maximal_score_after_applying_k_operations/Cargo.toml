@@ -1,0 +1,10 @@
+[package]
+name = "maximal_score_after_applying_k_operations"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+doctest = false
+path="maximal_score_after_applying_k_operations.rs"
+
+[dependencies]
