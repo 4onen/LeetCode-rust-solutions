@@ -1,0 +1,10 @@
+[package]
+name = "separate_black_and_white_balls"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+doctest = false
+path="separate_black_and_white_balls.rs"
+
+[dependencies]
