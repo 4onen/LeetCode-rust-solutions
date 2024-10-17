@@ -25,7 +25,38 @@ pub struct Solution;
 //     }
 // }
 
-// Optimized solution
+// Optimized O(nlogn) solution
+// impl Solution {
+//     pub fn maximum_swap(mut num: i32) -> i32 {
+//         let original_num = num;
+//         let mut digits = Vec::with_capacity(9);
+//         while num > 0 {
+//             digits.push(num % 10);
+//             num /= 10;
+//         }
+//         digits.reverse();
+//         let mut sorted_digits = digits.clone();
+//         sorted_digits.sort_unstable_by_key(|&x| std::cmp::Reverse(x));
+//         let mut i = 0;
+//         loop {
+//             if i == digits.len() {
+//                 return original_num;
+//             }
+//             if digits[i] != sorted_digits[i] {
+//                 break;
+//             }
+//             i += 1;
+//         }
+//         let mut j = digits.len() - 1;
+//         while digits[j] != sorted_digits[i] {
+//             j -= 1;
+//         }
+//         digits.swap(i, j);
+//         digits.into_iter().fold(0, |acc, x| acc * 10 + x)
+//     }
+// }
+
+// Shaving off a .reverse() and std::cmp::Reverse with reversed math
 impl Solution {
     pub fn maximum_swap(mut num: i32) -> i32 {
         let original_num = num;
@@ -34,25 +65,24 @@ impl Solution {
             digits.push(num % 10);
             num /= 10;
         }
-        digits.reverse();
         let mut sorted_digits = digits.clone();
-        sorted_digits.sort_unstable_by_key(|&x| std::cmp::Reverse(x));
-        let mut i = 0;
+        sorted_digits.sort_unstable();
+        let mut i = digits.len() - 1;
         loop {
-            if i == digits.len() {
+            if i == 0 {
                 return original_num;
             }
             if digits[i] != sorted_digits[i] {
                 break;
             }
-            i += 1;
+            i -= 1;
         }
-        let mut j = digits.len() - 1;
+        let mut j = 0;
         while digits[j] != sorted_digits[i] {
-            j -= 1;
+            j += 1;
         }
         digits.swap(i, j);
-        digits.into_iter().fold(0, |acc, x| acc * 10 + x)
+        digits.into_iter().rev().fold(0, |acc, x| acc * 10 + x)
     }
 }
 
