@@ -1,0 +1,10 @@
+[package]
+name = "find_kth_bit_in_nth_binary_string"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+doctest = false
+path="find_kth_bit_in_nth_binary_string.rs"
+
+[dependencies]
