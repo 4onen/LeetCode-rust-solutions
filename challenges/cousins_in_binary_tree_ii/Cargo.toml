@@ -1,0 +1,11 @@
+[package]
+name = "cousins_in_binary_tree_ii"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+doctest = false
+path="cousins_in_binary_tree_ii.rs"
+
+[dependencies]
+utils = { path = "../utils" }
