@@ -1,0 +1,11 @@
+[package]
+name = "flip_equivalent_binary_trees"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+doctest = false
+path="flip_equivalent_binary_trees.rs"
+
+[dependencies]
+utils = { path = "../utils" }
