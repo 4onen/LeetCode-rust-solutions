@@ -1,0 +1,10 @@
+[package]
+name = "remove_sub_folders_from_the_filesystem"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+doctest = false
+path="remove_sub_folders_from_the_filesystem.rs"
+
+[dependencies]
