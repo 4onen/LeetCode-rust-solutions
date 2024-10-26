@@ -1,0 +1,11 @@
+[package]
+name = "height_of_binary_tree_after_subtree_removal_queries"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+doctest = false
+path="height_of_binary_tree_after_subtree_removal_queries.rs"
+
+[dependencies]
+utils = { path = "../utils" }
