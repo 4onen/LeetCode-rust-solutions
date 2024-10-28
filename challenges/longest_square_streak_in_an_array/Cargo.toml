@@ -1,0 +1,10 @@
+[package]
+name = "longest_square_streak_in_an_array"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+doctest = false
+path="longest_square_streak_in_an_array.rs"
+
+[dependencies]
