@@ -1,0 +1,10 @@
+[package]
+name = "distribute_money_to_maximum_children"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+doctest = false
+path="distribute_money_to_maximum_children.rs"
+
+[dependencies]
