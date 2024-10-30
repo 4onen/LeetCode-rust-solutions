@@ -1,0 +1,10 @@
+[package]
+name = "distribute_candies_to_people"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+doctest = false
+path="distribute_candies_to_people.rs"
+
+[dependencies]
