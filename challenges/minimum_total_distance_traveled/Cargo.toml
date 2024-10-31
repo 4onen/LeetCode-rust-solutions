@@ -1,0 +1,10 @@
+[package]
+name = "minimum_total_distance_traveled"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+doctest = false
+path="minimum_total_distance_traveled.rs"
+
+[dependencies]

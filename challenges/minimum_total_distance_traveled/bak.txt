@@ -1,0 +1,44 @@
+// Initial sol'n
+// impl Solution {
+//     pub fn minimum_total_distance(mut robot: Vec<i32>, factory: Vec<Vec<i32>>) -> i64 {
+//         // First, we'll find any robots that start on factories and exclude
+//         // them from the rest of the analysis, excluding any factories that
+//         // are rendered inoperative as a result. These have no movement cost
+//         // so will not contribute to the total distance.
+//         let mut factory = factory
+//             .into_iter()
+//             .map(|x| (x[0], x[1]))
+//             .filter(|&(_, limit)| limit > 0)
+//             .collect::<std::collections::HashMap<_, _>>();
+//         let mut i = 0;
+//         while i < robot.len() {
+//             if let Some(limit) = factory.get_mut(&robot[i]) {
+//                 if *limit <= 1 {
+//                     factory.remove(&robot[i]);
+//                 } else {
+//                     *limit -= 1;
+//                 }
+//                 robot.swap_remove(i);
+//             } else {
+//                 i += 1;
+//             }
+//         }
+//         // If there are no robots left, we can return 0.
+//         if robot.is_empty() {
+//             return 0;
+//         }
+//         // Transform the factory hashmap back into a vector of tuples.
+//         let factory = factory.into_iter().collect::<Vec<_>>();
+//         // No we need to apply DP to the remaining system of robots and factories.
+//         // We'll use a 2D DP array to store the minimum distance to reach each
+//         // factory from each robot.
+//         // The DP array will be indexed by the robot index and the factory index.
+//         let mut robot_factory_distances = vec![vec![0; factory.len()]; robot.len()];
+//         for (robot_index, &robot_position) in robot.iter().enumerate() {
+//             for (factory_index, &(factory_position, _)) in factory.iter().enumerate() {
+//                 robot_factory_distances[robot_index][factory_index] =
+//                     (robot_position - factory_position).abs() as i64;
+//             }
+//         }
+//     }
+// }
