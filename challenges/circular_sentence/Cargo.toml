@@ -1,0 +1,10 @@
+[package]
+name = "circular_sentence"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+doctest = false
+path="circular_sentence.rs"
+
+[dependencies]
