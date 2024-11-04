@@ -1,0 +1,10 @@
+[package]
+name = "string_compression_iii"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+doctest = false
+path="string_compression_iii.rs"
+
+[dependencies]
