@@ -1,0 +1,10 @@
+[package]
+name = "shortest_subarray_with_or_at_least_k_ii"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+doctest = false
+path="shortest_subarray_with_or_at_least_k_ii.rs"
+
+[dependencies]
