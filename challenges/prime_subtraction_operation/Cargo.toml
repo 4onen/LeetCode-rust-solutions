@@ -1,0 +1,10 @@
+[package]
+name = "prime_subtraction_operation"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+doctest = false
+path="prime_subtraction_operation.rs"
+
+[dependencies]
