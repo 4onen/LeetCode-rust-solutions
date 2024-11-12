@@ -1,0 +1,10 @@
+[package]
+name = "most_beautiful_item_for_each_query"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+doctest = false
+path="most_beautiful_item_for_each_query.rs"
+
+[dependencies]
