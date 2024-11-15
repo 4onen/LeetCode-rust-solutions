@@ -1,0 +1,10 @@
+[package]
+name = "shortest_subarray_to_be_removed_to_make_array_sorted"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+doctest = false
+path="shortest_subarray_to_be_removed_to_make_array_sorted.rs"
+
+[dependencies]
