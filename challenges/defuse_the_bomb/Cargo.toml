@@ -1,0 +1,10 @@
+[package]
+name = "defuse_the_bomb"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+doctest = false
+path="defuse_the_bomb.rs"
+
+[dependencies]
