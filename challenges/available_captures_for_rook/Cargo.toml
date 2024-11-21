@@ -1,0 +1,10 @@
+[package]
+name = "available_captures_for_rook"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+doctest = false
+path="available_captures_for_rook.rs"
+
+[dependencies]
