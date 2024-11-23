@@ -1,0 +1,10 @@
+[package]
+name = "rotating_the_box"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+doctest = false
+path="rotating_the_box.rs"
+
+[dependencies]
