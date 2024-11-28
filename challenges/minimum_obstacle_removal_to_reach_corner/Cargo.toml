@@ -1,0 +1,10 @@
+[package]
+name = "minimum_obstacle_removal_to_reach_corner"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+doctest = false
+path="minimum_obstacle_removal_to_reach_corner.rs"
+
+[dependencies]
