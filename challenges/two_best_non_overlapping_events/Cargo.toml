@@ -1,0 +1,10 @@
+[package]
+name = "two_best_non_overlapping_events"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+doctest = false
+path="two_best_non_overlapping_events.rs"
+
+[dependencies]
