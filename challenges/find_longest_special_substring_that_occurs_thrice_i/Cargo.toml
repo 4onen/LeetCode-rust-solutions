@@ -1,0 +1,10 @@
+[package]
+name = "find_longest_special_substring_that_occurs_thrice_i"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+doctest = false
+path="find_longest_special_substring_that_occurs_thrice_i.rs"
+
+[dependencies]
