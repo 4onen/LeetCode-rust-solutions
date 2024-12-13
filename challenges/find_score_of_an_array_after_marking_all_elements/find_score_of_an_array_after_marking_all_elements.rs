@@ -129,6 +129,10 @@ pub struct Solution;
 // }
 
 // Sorting sol'n with bitset marking list
+// 128-bit bitset: 16ms
+// 64-bit bitset: 12ms
+// 32-bit bitset: 11ms
+// 16-bit bitset: 15ms
 impl Solution {
     pub fn find_score(nums: Vec<i32>) -> i64 {
         let elements = {
@@ -140,7 +144,7 @@ impl Solution {
             elements.sort_unstable();
             elements
         };
-        type BitSetDtype = u64;
+        type BitSetDtype = u32;
         const BITS: u32 = BitSetDtype::BITS;
         let mut seen: Vec<BitSetDtype> = vec![0; ((elements.len() as u32 + 1) / BITS + 1) as usize];
         elements.into_iter().fold(0i64, |score, (num, i)| {
