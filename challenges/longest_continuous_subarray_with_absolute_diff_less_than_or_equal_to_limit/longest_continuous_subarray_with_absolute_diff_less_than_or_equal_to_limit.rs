@@ -263,6 +263,47 @@ pub struct Solution;
 // }
 
 // Deque sol'n v2 (less indirection maybe?)
+// impl Solution {
+//     pub fn longest_subarray(nums: Vec<i32>, limit: i32) -> i32 {
+//         assert!(nums.len() >= 1);
+//         assert!(nums.len() <= 100_000);
+//         let mut min_deque = std::collections::VecDeque::new();
+//         let mut max_deque = std::collections::VecDeque::new();
+//         let mut left: u32 = 0;
+//         let mut right: u32 = 0;
+//         let mut result: i32 = 0;
+//         while right < nums.len() as u32 {
+//             let right_val = nums[right as usize];
+//             while !min_deque.is_empty()
+//                 && right_val < *min_deque.back().unwrap()
+//             {
+//                 min_deque.pop_back();
+//             }
+//             while !max_deque.is_empty()
+//                 && right_val > *max_deque.back().unwrap()
+//             {
+//                 max_deque.pop_back();
+//             }
+//             min_deque.push_back(right_val);
+//             max_deque.push_back(right_val);
+//             while *max_deque.front().unwrap() - *min_deque.front().unwrap() > limit {
+//                 let left_val = nums[left as usize];
+//                 if *max_deque.front().unwrap() == left_val {
+//                     max_deque.pop_front();
+//                 }
+//                 if *min_deque.front().unwrap() == left_val {
+//                     min_deque.pop_front();
+//                 }
+//                 left += 1;
+//             }
+//             result = std::cmp::max(result, (right - left) as i32 + 1);
+//             right += 1;
+//         }
+//         result
+//     }
+// }
+
+// New from sol'n best
 impl Solution {
     pub fn longest_subarray(nums: Vec<i32>, limit: i32) -> i32 {
         assert!(nums.len() >= 1);
@@ -274,27 +315,40 @@ impl Solution {
         let mut result: i32 = 0;
         while right < nums.len() as u32 {
             let right_val = nums[right as usize];
-            while !min_deque.is_empty()
-                && right_val < *min_deque.back().unwrap()
-            {
-                min_deque.pop_back();
-            }
-            while !max_deque.is_empty()
-                && right_val > *max_deque.back().unwrap()
-            {
-                max_deque.pop_back();
+            loop {
+                let Some(&back_val) = min_deque.back() else {
+                    break;
+                };
+                if back_val <= right_val {
+                    break;
+                }
+                _ = min_deque.pop_back()
             }
             min_deque.push_back(right_val);
+            loop {
+                let Some(&back_val) = max_deque.back() else {
+                    break;
+                };
+                if back_val >= right_val {
+                    break;
+                }
+                _ = max_deque.pop_back()
+            }
             max_deque.push_back(right_val);
-            while *max_deque.front().unwrap() - *min_deque.front().unwrap() > limit {
+            loop {
+                let min = *min_deque.front().unwrap();
+                let max = *max_deque.front().unwrap();
+                if max - min <= limit {
+                    break;
+                }
                 let left_val = nums[left as usize];
-                if *max_deque.front().unwrap() == left_val {
-                    max_deque.pop_front();
-                }
-                if *min_deque.front().unwrap() == left_val {
-                    min_deque.pop_front();
-                }
                 left += 1;
+                if left_val == min {
+                    _ = min_deque.pop_front();
+                }
+                if left_val == max {
+                    _ = max_deque.pop_front();
+                }
             }
             result = std::cmp::max(result, (right - left) as i32 + 1);
             right += 1;
