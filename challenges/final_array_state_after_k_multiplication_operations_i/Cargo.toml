@@ -1,0 +1,10 @@
+[package]
+name = "final_array_state_after_k_multiplication_operations_i"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+doctest = false
+path="final_array_state_after_k_multiplication_operations_i.rs"
+
+[dependencies]
