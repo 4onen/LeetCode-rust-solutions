@@ -1,0 +1,10 @@
+[package]
+name = "final_prices_with_a_special_discount_in_a_shop"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+doctest = false
+path="final_prices_with_a_special_discount_in_a_shop.rs"
+
+[dependencies]
