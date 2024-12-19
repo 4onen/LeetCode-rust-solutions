@@ -1,0 +1,10 @@
+[package]
+name = "max_chunks_to_make_sorted"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+doctest = false
+path="max_chunks_to_make_sorted.rs"
+
+[dependencies]
