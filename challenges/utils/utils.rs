@@ -2,7 +2,7 @@ use std::cell::RefCell;
 use std::rc::Rc;
 
 // Definition for a binary tree node.
-#[derive(Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq)]
 pub struct TreeNode {
     pub val: i32,
     pub left: Option<Rc<RefCell<TreeNode>>>,
@@ -42,6 +42,23 @@ impl TreeNode {
         nodes[0].take().map(|node| Rc::new(RefCell::new(node)))
     }
 
+    pub fn from_perfect_slice(slice: &[i32]) -> Option<Rc<RefCell<TreeNode>>> {
+        fn rec(i: usize, slice: &[i32]) -> Option<Rc<RefCell<TreeNode>>> {
+            if i < slice.len() {
+                let left = rec(2 * i + 1, slice);
+                let right = rec(2 * i + 2, slice);
+                Some(Rc::new(RefCell::new(TreeNode {
+                    val: slice[i],
+                    left,
+                    right,
+                })))
+            } else {
+                None
+            }
+        }
+        rec(0, slice)
+    }
+
     pub fn from_leetcode_slice(slice: &[Option<i32>]) -> Option<Rc<RefCell<TreeNode>>> {
         let mut nodes = slice.iter().cloned();
 
@@ -68,6 +85,60 @@ impl TreeNode {
         }
 
         Some(root)
+    }
+}
+
+fn linearize(root: &TreeNode) -> Vec<Option<i32>> {
+        let mut eles = vec![Some(root.val)];
+        fn rec(i: usize, eles: &mut Vec<Option<i32>>, node: &Option<Rc<RefCell<TreeNode>>>) {
+            let Some(node) = node else {
+                return;
+            };
+            let contents = node.borrow();
+            if eles.len() <= i + 1 {
+                eles.resize(i + 1, None);
+            }
+            eles[i] = Some(contents.val);
+            rec(2 * i + 1, eles, &contents.left);
+            rec(2 * i + 2, eles, &contents.right);
+        }
+        rec(1, &mut eles, &root.left);
+        rec(2, &mut eles, &root.right);
+        eles
+}
+
+impl std::fmt::Debug for TreeNode {
+    // Nodal debug fmt
+    // fn fmt(&self, f: &mut std::fmt::Formatter) -> Result<(), std::fmt::Error> {
+    //     let mut d = f.debug_struct("Node");
+    //     d.field("val", &self.val);
+    //     if self.left.is_some() || self.right.is_some() {
+    //         d.field("left", &self.left).field("right", &self.right)
+    //     } else {
+    //         &mut d
+    //     }
+    //     .finish()
+    // }
+
+    fn fmt(&self, f: &mut std::fmt::Formatter) -> Result<(), std::fmt::Error> {
+        let lin = linearize(self);
+        f.write_str("Tree ")?;
+        f.debug_list().entries(lin.into_iter()).finish()
+    }
+}
+
+impl PartialEq<&[i32]> for TreeNode {
+    fn eq(&self, other: &&[i32]) -> bool {
+        let eles = linearize(self);
+        if eles.len() != other.len() {
+            return false;
+        }
+        for (ele, o) in std::iter::Iterator::zip(eles.into_iter(), other.into_iter().copied()) {
+            if Some(o) != ele {
+                return false;
+            }
+        }
+        true
     }
 }
 
