@@ -1,0 +1,10 @@
+[package]
+name = "find_building_where_alice_and_bob_can_meet"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+doctest = false
+path="find_building_where_alice_and_bob_can_meet.rs"
+
+[dependencies]
