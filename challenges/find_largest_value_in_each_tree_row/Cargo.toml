@@ -1,0 +1,11 @@
+[package]
+name = "find_largest_value_in_each_tree_row"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+doctest = false
+path="find_largest_value_in_each_tree_row.rs"
+
+[dependencies]
+utils = { path = "../utils" }
