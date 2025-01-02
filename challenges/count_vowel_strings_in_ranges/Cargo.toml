@@ -1,0 +1,10 @@
+[package]
+name = "count_vowel_strings_in_ranges"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+doctest = false
+path="count_vowel_strings_in_ranges.rs"
+
+[dependencies]
