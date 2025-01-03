@@ -2,18 +2,49 @@
 
 pub struct Solution;
 
+// Initial sol'n
+// impl Solution {
+//     pub fn vowel_strings(words: Vec<String>, queries: Vec<Vec<i32>>) -> Vec<i32> {
+//         const fn is_vowel(b: u8) -> bool {
+//             const VOWELS: [u8; 5] = [b'a', b'e', b'i', b'o', b'u'];
+//             let mut i: u8 = 0;
+//             while i < VOWELS.len() as u8 {
+//                 if b == VOWELS[i as usize] {
+//                     return true;
+//                 }
+//                 i += 1;
+//             }
+//             false
+//         }
+//         let mut prefix_sum: Vec<i32> = std::vec::Vec::with_capacity(words.len() + 1);
+//         let mut so_far = 0;
+//         for word in words {
+//             let bs = word.as_bytes();
+//             let first = bs[0];
+//             let last = bs[bs.len() - 1];
+//             let vowel_string: bool = is_vowel(first) && is_vowel(last);
+//             so_far += vowel_string as i32;
+//             prefix_sum.push(so_far);
+//         }
+//         queries
+//             .into_iter()
+//             .map(|q| {
+//                 let end = prefix_sum[q[1] as usize];
+//                 if q[0] == 0 {
+//                     end
+//                 } else {
+//                     end - prefix_sum[q[0] as usize - 1]
+//                 }
+//             })
+//             .collect()
+//     }
+// }
+
+// Optimized sol'n
 impl Solution {
     pub fn vowel_strings(words: Vec<String>, queries: Vec<Vec<i32>>) -> Vec<i32> {
         const fn is_vowel(b: u8) -> bool {
-            const VOWELS: [u8; 5] = [b'a', b'e', b'i', b'o', b'u'];
-            let mut i: u8 = 0;
-            while i < VOWELS.len() as u8 {
-                if b == VOWELS[i as usize] {
-                    return true;
-                }
-                i += 1;
-            }
-            false
+            b == b'a' || b == b'e' || b == b'i' || b == b'o' || b == b'u'
         }
         let mut prefix_sum: Vec<i32> = std::vec::Vec::with_capacity(words.len() + 1);
         let mut so_far = 0;
