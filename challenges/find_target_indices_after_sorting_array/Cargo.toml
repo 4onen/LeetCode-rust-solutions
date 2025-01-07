@@ -1,0 +1,10 @@
+[package]
+name = "find_target_indices_after_sorting_array"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+doctest = false
+path="find_target_indices_after_sorting_array.rs"
+
+[dependencies]
