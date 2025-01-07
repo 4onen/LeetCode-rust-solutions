@@ -1,0 +1,10 @@
+[package]
+name = "find_words_containing_character"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+doctest = false
+path="find_words_containing_character.rs"
+
+[dependencies]
