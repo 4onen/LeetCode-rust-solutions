@@ -1,0 +1,10 @@
+[package]
+name = "reverse_vowels_of_a_string"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+doctest = false
+path="reverse_vowels_of_a_string.rs"
+
+[dependencies]
