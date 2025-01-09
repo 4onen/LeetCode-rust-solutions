@@ -1,0 +1,10 @@
+[package]
+name = "counting_words_with_a_given_prefix"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+doctest = false
+path="counting_words_with_a_given_prefix.rs"
+
+[dependencies]
