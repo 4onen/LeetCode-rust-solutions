@@ -1,0 +1,10 @@
+[package]
+name = "check_if_a_parentheses_string_can_be_valid"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+doctest = false
+path="check_if_a_parentheses_string_can_be_valid.rs"
+
+[dependencies]
