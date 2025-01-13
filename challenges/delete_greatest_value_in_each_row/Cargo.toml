@@ -1,0 +1,10 @@
+[package]
+name = "delete_greatest_value_in_each_row"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+doctest = false
+path="delete_greatest_value_in_each_row.rs"
+
+[dependencies]
