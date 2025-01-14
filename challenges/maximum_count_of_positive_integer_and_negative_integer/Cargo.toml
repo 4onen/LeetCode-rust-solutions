@@ -1,0 +1,10 @@
+[package]
+name = "maximum_count_of_positive_integer_and_negative_integer"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+doctest = false
+path="maximum_count_of_positive_integer_and_negative_integer.rs"
+
+[dependencies]
