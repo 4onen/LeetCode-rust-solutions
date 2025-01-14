@@ -1,0 +1,10 @@
+[package]
+name = "binary_search"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+doctest = false
+path="binary_search.rs"
+
+[dependencies]
