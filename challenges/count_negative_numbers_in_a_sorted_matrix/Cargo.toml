@@ -1,0 +1,10 @@
+[package]
+name = "count_negative_numbers_in_a_sorted_matrix"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+doctest = false
+path="count_negative_numbers_in_a_sorted_matrix.rs"
+
+[dependencies]
