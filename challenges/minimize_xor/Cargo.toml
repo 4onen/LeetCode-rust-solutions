@@ -1,0 +1,10 @@
+[package]
+name = "minimize_xor"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+doctest = false
+path="minimize_xor.rs"
+
+[dependencies]
