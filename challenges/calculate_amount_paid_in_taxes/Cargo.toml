@@ -1,0 +1,10 @@
+[package]
+name = "calculate_amount_paid_in_taxes"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+doctest = false
+path="calculate_amount_paid_in_taxes.rs"
+
+[dependencies]
