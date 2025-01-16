@@ -1,0 +1,10 @@
+[package]
+name = "bitwise_xor_of_all_pairings"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+doctest = false
+path="bitwise_xor_of_all_pairings.rs"
+
+[dependencies]
