@@ -1,0 +1,10 @@
+[package]
+name = "map_of_highest_peak"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+doctest = false
+path="map_of_highest_peak.rs"
+
+[dependencies]
