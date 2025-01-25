@@ -1,0 +1,10 @@
+[package]
+name = "make_lexicographically_smallest_array_by_swapping_elements"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+doctest = false
+path="make_lexicographically_smallest_array_by_swapping_elements.rs"
+
+[dependencies]
