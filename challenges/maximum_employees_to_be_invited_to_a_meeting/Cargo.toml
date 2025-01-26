@@ -1,0 +1,10 @@
+[package]
+name = "maximum_employees_to_be_invited_to_a_meeting"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+doctest = false
+path="maximum_employees_to_be_invited_to_a_meeting.rs"
+
+[dependencies]
