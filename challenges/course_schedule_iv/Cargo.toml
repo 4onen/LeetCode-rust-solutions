@@ -1,0 +1,10 @@
+[package]
+name = "course_schedule_iv"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+doctest = false
+path="course_schedule_iv.rs"
+
+[dependencies]
