@@ -1,0 +1,10 @@
+[package]
+name = "find_the_difference"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+doctest = false
+path="find_the_difference.rs"
+
+[dependencies]
