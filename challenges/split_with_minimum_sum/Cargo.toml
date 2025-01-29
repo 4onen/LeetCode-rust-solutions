@@ -1,0 +1,10 @@
+[package]
+name = "split_with_minimum_sum"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+doctest = false
+path="split_with_minimum_sum.rs"
+
+[dependencies]
