@@ -1,0 +1,10 @@
+[package]
+name = "redundant_connection"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+doctest = false
+path="redundant_connection.rs"
+
+[dependencies]
