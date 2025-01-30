@@ -1,0 +1,10 @@
+[package]
+name = "divide_nodes_into_the_maximum_number_of_groups"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+doctest = false
+path="divide_nodes_into_the_maximum_number_of_groups.rs"
+
+[dependencies]
