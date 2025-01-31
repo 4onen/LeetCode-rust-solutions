@@ -1,0 +1,10 @@
+[package]
+name = "making_a_large_island"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+doctest = false
+path="making_a_large_island.rs"
+
+[dependencies]
