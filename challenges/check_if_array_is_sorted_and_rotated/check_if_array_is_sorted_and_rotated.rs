@@ -2,9 +2,24 @@
 
 pub struct Solution;
 
+// Initial sol'n
+// impl Solution {
+//     pub fn check(nums: Vec<i32>) -> bool {
+//         let mut count = nums.windows(2).filter(|w| w[0] > w[1]).count();
+//         if nums[nums.len() - 1] > nums[0] {
+//             count += 1;
+//         }
+//         count <= 1
+//     }
+// }
+
+// LeetCode Daily 2025-02-01
 impl Solution {
     pub fn check(nums: Vec<i32>) -> bool {
-        let mut count = nums.windows(2).filter(|w| w[0] > w[1]).count();
+        let mut count = 0;
+        for i in 1..nums.len() as u8 {
+            count += (nums[i as usize-1] > nums[i as usize]) as u8;
+        }
         if nums[nums.len() - 1] > nums[0] {
             count += 1;
         }
