@@ -1,0 +1,10 @@
+[package]
+name = "maximum_value_of_an_ordered_triplet_i"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+doctest = false
+path="maximum_value_of_an_ordered_triplet_i.rs"
+
+[dependencies]
