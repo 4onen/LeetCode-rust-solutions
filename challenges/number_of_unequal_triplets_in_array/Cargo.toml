@@ -1,0 +1,10 @@
+[package]
+name = "number_of_unequal_triplets_in_array"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+doctest = false
+path="number_of_unequal_triplets_in_array.rs"
+
+[dependencies]
