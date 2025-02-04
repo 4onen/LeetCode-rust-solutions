@@ -1,0 +1,10 @@
+[package]
+name = "maximum_ascending_subarray_sum"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+doctest = false
+path="maximum_ascending_subarray_sum.rs"
+
+[dependencies]
