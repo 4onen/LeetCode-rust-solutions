@@ -1,0 +1,10 @@
+[package]
+name = "remove_all_occurrences_of_a_substring"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+doctest = false
+path="remove_all_occurrences_of_a_substring.rs"
+
+[dependencies]
