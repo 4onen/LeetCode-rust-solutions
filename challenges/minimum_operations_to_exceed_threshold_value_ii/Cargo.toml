@@ -1,0 +1,10 @@
+[package]
+name = "minimum_operations_to_exceed_threshold_value_ii"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+doctest = false
+path="minimum_operations_to_exceed_threshold_value_ii.rs"
+
+[dependencies]
