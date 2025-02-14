@@ -1,0 +1,10 @@
+[package]
+name = "product_of_the_last_k_numbers"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+doctest = false
+path="product_of_the_last_k_numbers.rs"
+
+[dependencies]
