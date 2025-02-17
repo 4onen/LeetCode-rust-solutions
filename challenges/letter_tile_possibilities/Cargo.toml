@@ -1,0 +1,10 @@
+[package]
+name = "letter_tile_possibilities"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+doctest = false
+path="letter_tile_possibilities.rs"
+
+[dependencies]
