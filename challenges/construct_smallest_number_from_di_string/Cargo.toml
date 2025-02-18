@@ -1,0 +1,10 @@
+[package]
+name = "construct_smallest_number_from_di_string"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+doctest = false
+path="construct_smallest_number_from_di_string.rs"
+
+[dependencies]
