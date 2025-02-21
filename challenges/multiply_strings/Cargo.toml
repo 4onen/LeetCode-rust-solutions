@@ -1,0 +1,10 @@
+[package]
+name = "multiply_strings"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+doctest = false
+path="multiply_strings.rs"
+
+[dependencies]
