@@ -1,0 +1,11 @@
+[package]
+name = "find_elements_in_a_contaminated_binary_tree"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+doctest = false
+path="find_elements_in_a_contaminated_binary_tree.rs"
+
+[dependencies]
+utils = { path = "../utils" }
