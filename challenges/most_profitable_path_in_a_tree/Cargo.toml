@@ -1,0 +1,10 @@
+[package]
+name = "most_profitable_path_in_a_tree"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+doctest = false
+path="most_profitable_path_in_a_tree.rs"
+
+[dependencies]
