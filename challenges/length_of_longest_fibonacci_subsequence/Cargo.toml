@@ -1,0 +1,10 @@
+[package]
+name = "length_of_longest_fibonacci_subsequence"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+doctest = false
+path="length_of_longest_fibonacci_subsequence.rs"
+
+[dependencies]
