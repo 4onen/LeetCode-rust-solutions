@@ -1,0 +1,10 @@
+[package]
+name = "apply_operations_to_an_array"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+doctest = false
+path="apply_operations_to_an_array.rs"
+
+[dependencies]
