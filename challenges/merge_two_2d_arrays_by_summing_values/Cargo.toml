@@ -1,0 +1,10 @@
+[package]
+name = "merge_two_2d_arrays_by_summing_values"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+doctest = false
+path="merge_two_2d_arrays_by_summing_values.rs"
+
+[dependencies]
