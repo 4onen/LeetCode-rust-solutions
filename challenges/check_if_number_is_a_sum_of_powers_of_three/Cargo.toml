@@ -1,0 +1,10 @@
+[package]
+name = "check_if_number_is_a_sum_of_powers_of_three"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+doctest = false
+path="check_if_number_is_a_sum_of_powers_of_three.rs"
+
+[dependencies]

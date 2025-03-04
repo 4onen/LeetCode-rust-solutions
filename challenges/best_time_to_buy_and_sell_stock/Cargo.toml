@@ -1,0 +1,10 @@
+[package]
+name = "best_time_to_buy_and_sell_stock"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+doctest = false
+path="best_time_to_buy_and_sell_stock.rs"
+
+[dependencies]
