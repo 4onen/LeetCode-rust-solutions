@@ -1,0 +1,10 @@
+[package]
+name = "count_of_substrings_containing_every_vowel_and_k_consonants_i"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+doctest = false
+path="count_of_substrings_containing_every_vowel_and_k_consonants_i.rs"
+
+[dependencies]
