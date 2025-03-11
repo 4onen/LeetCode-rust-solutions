@@ -1,0 +1,10 @@
+[package]
+name = "number_of_substrings_containing_all_three_characters"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+doctest = false
+path="number_of_substrings_containing_all_three_characters.rs"
+
+[dependencies]
