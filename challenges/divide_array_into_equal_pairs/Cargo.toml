@@ -1,0 +1,10 @@
+[package]
+name = "divide_array_into_equal_pairs"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+doctest = false
+path="divide_array_into_equal_pairs.rs"
+
+[dependencies]
