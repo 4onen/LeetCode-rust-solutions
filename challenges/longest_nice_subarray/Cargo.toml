@@ -1,0 +1,10 @@
+[package]
+name = "longest_nice_subarray"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+doctest = false
+path="longest_nice_subarray.rs"
+
+[dependencies]
