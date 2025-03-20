@@ -1,6 +1,7 @@
 #!/bin/bash
 
 set -e
+cd "$(dirname "$0")"
 
 FILES=( $(git status --porcelain | grep -P ' challenges/' | cut -d'/' -f2 | tr '\n' ' ') );
 

@@ -2,6 +2,8 @@
 
 set -e
 
+cd "$(dirname "$0")"
+
 #git pull || true
 
 DONT_REALLY_OPEN=1 . open.sh
