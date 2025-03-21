@@ -1,0 +1,10 @@
+[package]
+name = "find_all_possible_recipes_from_given_supplies"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+doctest = false
+path="find_all_possible_recipes_from_given_supplies.rs"
+
+[dependencies]
