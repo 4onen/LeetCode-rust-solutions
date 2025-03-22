@@ -1,0 +1,10 @@
+[package]
+name = "count_the_number_of_complete_components"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+doctest = false
+path="count_the_number_of_complete_components.rs"
+
+[dependencies]
