@@ -1,0 +1,10 @@
+[package]
+name = "number_of_ways_to_arrive_at_destination"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+doctest = false
+path="number_of_ways_to_arrive_at_destination.rs"
+
+[dependencies]
