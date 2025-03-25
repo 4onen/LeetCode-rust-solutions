@@ -1,0 +1,10 @@
+[package]
+name = "check_if_grid_can_be_cut_into_sections"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+doctest = false
+path="check_if_grid_can_be_cut_into_sections.rs"
+
+[dependencies]
