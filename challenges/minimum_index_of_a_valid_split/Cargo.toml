@@ -1,0 +1,10 @@
+[package]
+name = "minimum_index_of_a_valid_split"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+doctest = false
+path="minimum_index_of_a_valid_split.rs"
+
+[dependencies]
