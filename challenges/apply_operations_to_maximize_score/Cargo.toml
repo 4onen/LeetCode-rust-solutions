@@ -1,0 +1,10 @@
+[package]
+name = "apply_operations_to_maximize_score"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+doctest = false
+path="apply_operations_to_maximize_score.rs"
+
+[dependencies]
