@@ -1,0 +1,10 @@
+[package]
+name = "solving_questions_with_brainpower"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+doctest = false
+path="solving_questions_with_brainpower.rs"
+
+[dependencies]
