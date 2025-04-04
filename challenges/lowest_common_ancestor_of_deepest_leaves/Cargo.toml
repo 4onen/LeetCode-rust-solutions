@@ -1,0 +1,11 @@
+[package]
+name = "lowest_common_ancestor_of_deepest_leaves"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+doctest = false
+path="lowest_common_ancestor_of_deepest_leaves.rs"
+
+[dependencies]
+utils = { path = "../utils" }
