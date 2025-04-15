@@ -159,61 +159,292 @@ pub struct Solution;
 // }
 
 // Fenwick Tree sol'n
+// impl Solution {
+//     pub fn good_triplets(mut nums1: Vec<i32>, nums2: Vec<i32>) -> i64 {
+//         struct FenwickTree {
+//             tree: Vec<u32>,
+//         }
+//         impl FenwickTree {
+//             fn with_capacity(n: usize) -> Self {
+//                 FenwickTree {
+//                     tree: vec![0; n + 1],
+//                 }
+//             }
+//             fn add_one(&mut self, mut index: i32) {
+//                 index += 1;
+//                 while index < self.tree.len() as i32 {
+//                     self.tree[index as usize] += 1;
+//                     index += index & (-index);
+//                 }
+//             }
+//             fn prefix_sum(&self, mut index: i32) -> u32 {
+//                 index += 1;
+//                 let mut result = 0;
+//                 while index > 0 {
+//                     result += self.tree[index as usize];
+//                     index -= index & (-index);
+//                 }
+//                 result
+//             }
+//             fn clear(&mut self) {
+//                 self.tree.fill(0);
+//             }
+//         }
+//         let nums2_positions = nums2
+//             .into_iter()
+//             .enumerate()
+//             .map(|(i, x)| (x, i as i32))
+//             .collect::<std::collections::HashMap<_, _>>();
+//         nums1.iter_mut().for_each(|x| *x = nums2_positions[&x]);
+//         std::mem::drop(nums2_positions);
+//         let mut seen = FenwickTree::with_capacity(nums1.len());
+//         let smaller_than_pos: Vec<_> = (0..nums1.len())
+//             .map(|i| {
+//                 let p2i = nums1[i];
+//                 let smaller = seen.prefix_sum(p2i);
+//                 seen.add_one(p2i);
+//                 smaller
+//             })
+//             .collect();
+//         seen.clear();
+//         let mut count = 0;
+//         for i in (0..nums1.len() as u32).rev() {
+//             let p2i = nums1[i as usize];
+//             seen.add_one(p2i);
+//             let smaller = seen.prefix_sum(p2i);
+//             let larger = (nums1.len() as u32 - i) - smaller;
+//             count += smaller_than_pos[i as usize] as i64 * larger as i64;
+//         }
+//         count
+//     }
+// }
+
+// Fenwick Tree sol'n v2 (use vec instead of hashmap)
+// impl Solution {
+//     pub fn good_triplets(mut nums1: Vec<i32>, nums2: Vec<i32>) -> i64 {
+//         struct FenwickTree {
+//             tree: Vec<u32>,
+//         }
+//         impl FenwickTree {
+//             fn with_capacity(n: usize) -> Self {
+//                 FenwickTree {
+//                     tree: vec![0; n + 1],
+//                 }
+//             }
+//             fn add_one(&mut self, mut index: i32) {
+//                 index += 1;
+//                 while index < self.tree.len() as i32 {
+//                     self.tree[index as usize] += 1;
+//                     index += index & (-index);
+//                 }
+//             }
+//             fn prefix_sum(&self, mut index: i32) -> u32 {
+//                 index += 1;
+//                 let mut result = 0;
+//                 while index > 0 {
+//                     result += self.tree[index as usize];
+//                     index -= index & (-index);
+//                 }
+//                 result
+//             }
+//             fn clear(&mut self) {
+//                 self.tree.fill(0);
+//             }
+//         }
+//         let mut nums2_positions = vec![0; nums2.len()];
+//         for (i, num) in nums2.into_iter().enumerate() {
+//             nums2_positions[num as usize] = i as i32;
+//         }
+//         nums1
+//             .iter_mut()
+//             .for_each(|x| *x = nums2_positions[*x as usize]);
+//         std::mem::drop(nums2_positions);
+//         let mut seen = FenwickTree::with_capacity(nums1.len());
+//         let smaller_than_pos: Vec<_> = (0..nums1.len())
+//             .map(|i| {
+//                 let p2i = nums1[i];
+//                 let smaller = seen.prefix_sum(p2i);
+//                 seen.add_one(p2i);
+//                 smaller
+//             })
+//             .collect();
+//         seen.clear();
+//         let mut count = 0;
+//         for i in (0..nums1.len() as u32).rev() {
+//             let p2i = nums1[i as usize];
+//             seen.add_one(p2i);
+//             let smaller = seen.prefix_sum(p2i);
+//             let larger = (nums1.len() as u32 - i) - smaller;
+//             count += smaller_than_pos[i as usize] as i64 * larger as i64;
+//         }
+//         count
+//     }
+// }
+
+// Fenwick Tree sol'n v3 (commit unsafe to save an alloc)
+// impl Solution {
+//     pub fn good_triplets(mut nums1: Vec<i32>, nums2: Vec<i32>) -> i64 {
+//         struct FenwickTree {
+//             tree: Vec<u32>,
+//         }
+//         impl FenwickTree {
+//             fn with_storage(arr: Vec<u32>) -> Self {
+//                 FenwickTree { tree: arr }
+//             }
+//             fn add_one(&mut self, mut index: i32) {
+//                 index += 1;
+//                 while index < self.tree.len() as i32 {
+//                     self.tree[index as usize] += 1;
+//                     index += index & (-index);
+//                 }
+//             }
+//             fn prefix_sum(&self, mut index: i32) -> u32 {
+//                 index += 1;
+//                 let mut result = 0;
+//                 while index > 0 {
+//                     result += self.tree[index as usize];
+//                     index -= index & (-index);
+//                 }
+//                 result
+//             }
+//             fn clear(&mut self) {
+//                 self.tree.fill(0);
+//             }
+//         }
+//         let mut nums2_positions = vec![0; nums2.len() + 1];
+//         for (i, num) in nums2.into_iter().enumerate() {
+//             nums2_positions[num as usize] = i as i32;
+//         }
+//         nums1
+//             .iter_mut()
+//             .for_each(|x| *x = nums2_positions[*x as usize]);
+//         nums2_positions.fill(0);
+//         // Safety: We're transmuting a vector of i32 to a vector of u32, which is the same size type in the same storage.
+//         //         Technically a future rust standard could break it, but I don't care at the moment.
+//         let mut seen = FenwickTree::with_storage(unsafe { std::mem::transmute(nums2_positions) });
+//         let smaller_than_pos: Vec<_> = (0..nums1.len())
+//             .map(|i| {
+//                 let p2i = nums1[i];
+//                 let smaller = seen.prefix_sum(p2i);
+//                 seen.add_one(p2i);
+//                 smaller
+//             })
+//             .collect();
+//         seen.clear();
+//         let mut count = 0;
+//         for i in (0..nums1.len() as u32).rev() {
+//             let p2i = nums1[i as usize];
+//             seen.add_one(p2i);
+//             let smaller = seen.prefix_sum(p2i);
+//             let larger = (nums1.len() as u32 - i) - smaller;
+//             count += smaller_than_pos[i as usize] as i64 * larger as i64;
+//         }
+//         count
+//     }
+// }
+
+// Fenwick Tree sol'n v4 (get fancy with indexing, inspired by top sol'n)
+// impl Solution {
+//     pub fn good_triplets(nums1: Vec<i32>, nums2: Vec<i32>) -> i64 {
+//         struct FenwickTree {
+//             tree: Vec<i32>,
+//         }
+//         impl FenwickTree {
+//             fn with_storage(arr: Vec<i32>) -> Self {
+//                 FenwickTree { tree: arr }
+//             }
+//             fn add_one(&mut self, mut index: i32) {
+//                 index += 1;
+//                 while index < self.tree.len() as i32 {
+//                     self.tree[index as usize] += 1;
+//                     index += index & (-index);
+//                 }
+//             }
+//             fn prefix_sum(&self, mut index: i32) -> i32 {
+//                 index += 1;
+//                 let mut result = 0;
+//                 while index > 0 {
+//                     result += self.tree[index as usize];
+//                     index -= index & (-index);
+//                 }
+//                 result
+//             }
+//         }
+//         let n = nums1.len() as i32;
+//         assert_eq!(n, nums2.len() as i32);
+//         let mut value_to_pos2 = vec![0; nums2.len() + 1];
+//         for (i, num) in nums2.into_iter().enumerate() {
+//             value_to_pos2[num as usize] = i as i32;
+//         }
+//         let mut pos1_to_pos2 = nums1;
+//         pos1_to_pos2
+//             .iter_mut()
+//             .for_each(|x| *x = value_to_pos2[*x as usize]);
+//         value_to_pos2.fill(0);
+//         let mut seen = FenwickTree::with_storage(value_to_pos2);
+//         let mut count = 0;
+//         for pos1 in 0..n {
+//             let pos2 = pos1_to_pos2[pos1 as usize];
+//             let smaller = seen.prefix_sum(pos2);
+//             seen.add_one(pos2);
+//             let larger = (n - 1 - pos2) - (pos1 - smaller);
+//             count += smaller as i64 * larger as i64;
+//         }
+//         count
+//     }
+// }
+
+// Hyper-optimizing type choices
 impl Solution {
-    pub fn good_triplets(mut nums1: Vec<i32>, nums2: Vec<i32>) -> i64 {
+    pub fn good_triplets(nums1: Vec<i32>, nums2: Vec<i32>) -> i64 {
         struct FenwickTree {
             tree: Vec<u32>,
         }
         impl FenwickTree {
-            fn with_capacity(n: usize) -> Self {
-                FenwickTree {
-                    tree: vec![0; n + 1],
-                }
+            fn with_storage(arr: Vec<u32>) -> Self {
+                FenwickTree { tree: arr }
             }
-            fn add_one(&mut self, mut index: i32) {
+            fn add_one(&mut self, mut index: u32) {
                 index += 1;
-                while index < self.tree.len() as i32 {
+                while index < self.tree.len() as u32 {
                     self.tree[index as usize] += 1;
-                    index += index & (-index);
+                    index += index & (!index + 1);
                 }
             }
-            fn prefix_sum(&self, mut index: i32) -> u32 {
+            fn prefix_sum(&self, mut index: u32) -> u32 {
                 index += 1;
                 let mut result = 0;
                 while index > 0 {
                     result += self.tree[index as usize];
-                    index -= index & (-index);
+                    index &= !(index & (!index + 1));
                 }
                 result
             }
-            fn clear(&mut self) {
-                self.tree.fill(0);
-            }
         }
-        let nums2_positions = nums2
-            .into_iter()
-            .enumerate()
-            .map(|(i, x)| (x, i as i32))
-            .collect::<std::collections::HashMap<_, _>>();
-        nums1.iter_mut().for_each(|x| *x = nums2_positions[&x]);
-        std::mem::drop(nums2_positions);
-        let mut seen = FenwickTree::with_capacity(nums1.len());
-        let smaller_than_pos: Vec<_> = (0..nums1.len())
-            .map(|i| {
-                let p2i = nums1[i];
-                let smaller = seen.prefix_sum(p2i);
-                seen.add_one(p2i);
-                smaller
-            })
-            .collect();
-        seen.clear();
+        let n = nums1.len() as u32;
+        // Safety: We know every element in nums1 & nums2 is positive by the problem statement.
+        //         If changing the meaning of the sign bit changes the type storage,
+        //         I don't know what's safe anymore.
+        let nums1: Vec<u32> = unsafe { std::mem::transmute(nums1) };
+        let nums2: Vec<u32> = unsafe { std::mem::transmute(nums2) };
+        assert_eq!(n, nums2.len() as u32);
+        let mut value_to_pos2 = vec![0; nums2.len() + 1];
+        for (i, num) in nums2.into_iter().enumerate() {
+            value_to_pos2[num as usize] = i as u32;
+        }
+        let mut pos1_to_pos2: Vec<_> = nums1;
+        pos1_to_pos2
+            .iter_mut()
+            .for_each(|x| *x = value_to_pos2[*x as usize]);
+        value_to_pos2.fill(0);
+        let mut seen = FenwickTree::with_storage(value_to_pos2);
         let mut count = 0;
-        for i in (0..nums1.len() as u32).rev() {
-            let p2i = nums1[i as usize];
-            seen.add_one(p2i);
-            let smaller = seen.prefix_sum(p2i);
-            let larger = (nums1.len() as u32 - i) - smaller;
-            count += smaller_than_pos[i as usize] as i64 * larger as i64;
+        for pos1 in 0..n {
+            let pos2 = pos1_to_pos2[pos1 as usize];
+            let smaller = seen.prefix_sum(pos2);
+            seen.add_one(pos2);
+            let larger = (n - 1 - pos2) - (pos1 - smaller);
+            count += smaller as i64 * larger as i64;
         }
         count
     }
