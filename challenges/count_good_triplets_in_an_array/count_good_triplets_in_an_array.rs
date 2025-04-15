@@ -124,8 +124,72 @@ pub struct Solution;
 // }
 
 // Sorted list binsearch v2 (nlogn if you don't count the insert op)
+// impl Solution {
+//     pub fn good_triplets(mut nums1: Vec<i32>, nums2: Vec<i32>) -> i64 {
+//         let nums2_positions = nums2
+//             .into_iter()
+//             .enumerate()
+//             .map(|(i, x)| (x, i as i32))
+//             .collect::<std::collections::HashMap<_, _>>();
+//         nums1.iter_mut().for_each(|x| *x = nums2_positions[&x]);
+//         std::mem::drop(nums2_positions);
+//         let mut smaller_than_pos = vec![0; nums1.len()];
+//         let mut seen = std::vec::Vec::with_capacity(nums1.len());
+//         for i in 0..nums1.len() {
+//             let p2i = nums1[i];
+//             let smaller = seen
+//                 .binary_search(&p2i)
+//                 .expect_err("non-permutation detected");
+//             seen.insert(smaller, p2i);
+//             smaller_than_pos[i] = smaller as u32;
+//         }
+//         seen.clear();
+//         let mut count = 0;
+//         for i in (0..nums1.len()).rev() {
+//             let p2i = nums1[i];
+//             let smaller = seen
+//                 .binary_search(&p2i)
+//                 .expect_err("non-permutation detected");
+//             let larger = seen.len() - smaller;
+//             seen.insert(smaller, p2i);
+//             count += smaller_than_pos[i] as i64 * larger as i64;
+//         }
+//         count
+//     }
+// }
+
+// Fenwick Tree sol'n
 impl Solution {
     pub fn good_triplets(mut nums1: Vec<i32>, nums2: Vec<i32>) -> i64 {
+        struct FenwickTree {
+            tree: Vec<u32>,
+        }
+        impl FenwickTree {
+            fn with_capacity(n: usize) -> Self {
+                FenwickTree {
+                    tree: vec![0; n + 1],
+                }
+            }
+            fn add_one(&mut self, mut index: i32) {
+                index += 1;
+                while index < self.tree.len() as i32 {
+                    self.tree[index as usize] += 1;
+                    index += index & (-index);
+                }
+            }
+            fn prefix_sum(&self, mut index: i32) -> u32 {
+                index += 1;
+                let mut result = 0;
+                while index > 0 {
+                    result += self.tree[index as usize];
+                    index -= index & (-index);
+                }
+                result
+            }
+            fn clear(&mut self) {
+                self.tree.fill(0);
+            }
+        }
         let nums2_positions = nums2
             .into_iter()
             .enumerate()
@@ -133,26 +197,23 @@ impl Solution {
             .collect::<std::collections::HashMap<_, _>>();
         nums1.iter_mut().for_each(|x| *x = nums2_positions[&x]);
         std::mem::drop(nums2_positions);
-        let mut smaller_than_pos = vec![0; nums1.len()];
-        let mut seen = std::vec::Vec::with_capacity(nums1.len());
-        for i in 0..nums1.len() {
-            let p2i = nums1[i];
-            let smaller = seen
-                .binary_search(&p2i)
-                .expect_err("non-permutation detected");
-            seen.insert(smaller, p2i);
-            smaller_than_pos[i] = smaller as u32;
-        }
+        let mut seen = FenwickTree::with_capacity(nums1.len());
+        let smaller_than_pos: Vec<_> = (0..nums1.len())
+            .map(|i| {
+                let p2i = nums1[i];
+                let smaller = seen.prefix_sum(p2i);
+                seen.add_one(p2i);
+                smaller
+            })
+            .collect();
         seen.clear();
         let mut count = 0;
-        for i in (0..nums1.len()).rev() {
-            let p2i = nums1[i];
-            let smaller = seen
-                .binary_search(&p2i)
-                .expect_err("non-permutation detected");
-            let larger = seen.len() - smaller;
-            seen.insert(smaller, p2i);
-            count += smaller_than_pos[i] as i64 * larger as i64;
+        for i in (0..nums1.len() as u32).rev() {
+            let p2i = nums1[i as usize];
+            seen.add_one(p2i);
+            let smaller = seen.prefix_sum(p2i);
+            let larger = (nums1.len() as u32 - i) - smaller;
+            count += smaller_than_pos[i as usize] as i64 * larger as i64;
         }
         count
     }
